@@ -1,22 +1,19 @@
 ﻿angular.module('emixApp.controllers').controller('dashboard_index',
-    ['$scope', '$window', '$translate', 'httpServices', function ($scope, $window, $translate, httpServices) {
+    ['$scope', 'httpServices', function ($scope, httpServices) {
 
-        $scope.title = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+        $scope.title = new Date();
         $scope.username = "";
         $scope.helloMessage = '';
+        $scope.scopedNumber = 123456789;
 
         $scope.progressStart = function () {
             NProgress.start();
+
+            $scope.scopedNumber++;
+            $scope.title = new Date();
         };
         $scope.progressEnd = function () {
             NProgress.done();
-
-            $scope.title = 'Pippo';
-            $window.location.reload();
-        };
-
-        $scope.changeLanguage = function (languageKey) {
-            $translate.use(languageKey);
         };
 
         $scope.sayHello = function () {

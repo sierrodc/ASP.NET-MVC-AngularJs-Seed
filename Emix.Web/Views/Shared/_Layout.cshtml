@@ -6,12 +6,26 @@
     <title>Emix</title>
     @Styles.Render("~/Content/css")
     @{ Html.RenderPartial("_Urls"); }
+
+    @{
+        var language = Emix.Web.App_Start.Settings.DefaultLanguage;
+        var langCookie = Request.Cookies["emixlang"];
+        if (langCookie != null && !string.IsNullOrEmpty(langCookie.Value))
+        {
+            var cookieLanguage = langCookie.Value.Replace("%22", string.Empty);
+            if (System.Text.RegularExpressions.Regex.IsMatch(cookieLanguage, "^[a-z]{2}-[a-zA-Z]{2}$")) { 
+                language = cookieLanguage;
+            }
+        }
+    }
 </head>
 <body ng-app="emixApp" ng-cloak>
     @RenderBody()
 
     @Scripts.Render("~/bundles/vendor")
     @Scripts.Render("~/bundles/emixApp")
+    <script src="@Url.Content("~/Scripts/angular-i18n/angular-locale_" + language + ".js")"></script>
     @RenderSection("scripts", required: false)
 </body>
+
 </html>

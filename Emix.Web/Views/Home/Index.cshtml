@@ -17,18 +17,18 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{ active: isActive('/section')}"><a href="#/section">Section</a></li>
+                    <li ng-class="{ active: isMenuActive('/section')}"><a href="#/section">Section</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown">Language <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><span class="flag-icon flag-icon-it"></span> Italiano</a></li>
-                            <li><a href="#"><span class="flag-icon flag-icon-us"></span> English</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#"><span class="flag-icon flag-icon-fr"></span> French</a></li>
-                            <li><a href="#"><span class="flag-icon flag-icon-de"></span> German</a></li>
+                            <li ng-class="{ active: isLanguageActive('it-IT')}"><a href="" ng-click="changeLanguage('it-IT')"><span class="flag-icon flag-icon-it"></span> Italiano</a></li>
+                            <li ng-class="{ active: isLanguageActive('en-US')}"><a href="" ng-click="changeLanguage('en-US')"><span class="flag-icon flag-icon-us"></span> English</a></li>
+                            <li class="divider"></li>                                  
+                            <li ng-class="{ active: isLanguageActive('fr-FR')}"><a href="" ng-click="changeLanguage('fr-FR')"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+                            <li ng-class="{ active: isLanguageActive('de-DE')}"><a href="" ng-click="changeLanguage('de-DE')"><span class="flag-icon flag-icon-de"></span> German</a></li>
                         </ul>
                     </li>
                 </ul>

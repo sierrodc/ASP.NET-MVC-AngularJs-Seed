@@ -1,6 +1,7 @@
 ﻿angular.module('emixApp',
     ['ngRoute',
     'ngCookies',
+    'ngLocale',
     'emixApp.controllers',
     'emixApp.directives',
     'emixApp.services',
@@ -31,11 +32,13 @@
             suffix: '.json'
         });
 
-        $translateProvider.preferredLanguage('it_IT');
+        $translateProvider.preferredLanguage(Emix.Settings.defaultLanguage);
+        $translateProvider.fallbackLanguage(Emix.Settings.defaultLanguage);
         
-        $translateProvider.storageKey('lang');
         $translateProvider.storagePrefix('emix');
-        $translateProvider.useLocalStorage();
+        $translateProvider.storageKey('lang');
+        
+        $translateProvider.useCookieStorage();
     }]);
 
 angular.module('emixApp.services', []);
