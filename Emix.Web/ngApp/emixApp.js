@@ -1,11 +1,11 @@
 ﻿angular.module('emixApp',
     ['ngRoute',
+    'ngCookies',
     'emixApp.controllers',
     'emixApp.directives',
     'emixApp.services',
     'mgcrea.ngStrap',
     'ngMorris',
-    //'ngGoogleMap'
     'pascalprecht.translate'
     ])
     .config(['$routeProvider', function ($routeProvider) {
@@ -35,8 +35,7 @@
         
         $translateProvider.storageKey('lang');
         $translateProvider.storagePrefix('emix');
-
-        // $translateProvider.useLocalStorage();
+        $translateProvider.useLocalStorage();
     }]);
 
 angular.module('emixApp.services', []);
