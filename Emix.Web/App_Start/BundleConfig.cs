@@ -15,6 +15,7 @@ namespace Emix.Web
                 .IncludeDirectory("~/Scripts/Vendor_dev/Ring0", "*.js", true)
                 .IncludeDirectory("~/Scripts/Vendor_dev/Ring1", "*.js", true)
                 .IncludeDirectory("~/Scripts/Vendor_dev/Ring2", "*.js", true)
+                .IncludeDirectory("~/Scripts/Vendor_dev/Ring3", "*.js", true)
                 .IncludeDirectory("~/Scripts/Custom", "*.js", true)
                 );
 
@@ -27,6 +28,7 @@ namespace Emix.Web
                 .Include("~/Content/bootstrap/bootstrap.css")
                 .Include("~/Content/bootstrap-additions/bootstrap-additions.css")
                 .Include("~/Content/fontawesome/font-awesome.css")
+                .Include("~/Content/flag-icon/flag-icon.css")
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/morris.core.css")
                 .Include("~/Content/nProgress.css")
