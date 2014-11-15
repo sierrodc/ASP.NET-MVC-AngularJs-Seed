@@ -4,7 +4,7 @@
     "use strict";
 
     function setup($) {
-        // global $ methods for blocking/unblocking the entire page
+
         $.blockUI = function (opts) { install(window, opts); };
         $.unblockUI = function (opts) { remove(window, opts); };
 

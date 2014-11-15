@@ -6,6 +6,7 @@
     'mgcrea.ngStrap',
     'ngMorris',
     //'ngGoogleMap'
+    'pascalprecht.translate'
     ])
     .config(['$routeProvider', function ($routeProvider) {
 
@@ -22,6 +23,20 @@
                 redirectTo: '/dashboard'
             });
 
+    }])
+    .config(['$translateProvider', function ($translateProvider) {
+
+        $translateProvider.useStaticFilesLoader({
+            prefix: Emix.Web.translationsFolder,
+            suffix: '.json'
+        });
+
+        $translateProvider.preferredLanguage('it_IT');
+        
+        $translateProvider.storageKey('lang');
+        $translateProvider.storagePrefix('emix');
+
+        // $translateProvider.useLocalStorage();
     }]);
 
 angular.module('emixApp.services', []);
