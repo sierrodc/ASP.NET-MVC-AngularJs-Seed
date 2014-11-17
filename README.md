@@ -4,6 +4,14 @@ ASP.NET-MVC-AngularJs-Seed
 Simple asp.net mvc project that includes angularjs and other libraries.
 The project will be updated to include last updates of packages included. New JS libraries will be included if useful in common scenarios.
 
+Features:
+ - asp.net and webapi registration
+ - ioc framework setup
+ - angularjs and dependencies setup
+ - client-side translation + change language
+ - no authentication
+ - samples
+
 Server side
  - ASP.NET MVC 5
  - ASP.NET WebApi
@@ -20,6 +28,7 @@ Js utilitiles
  - Toastr 2.0.3 (http://codeseven.github.io/toastr/)
  - nProgress 0.1.6 (http://ricostacruz.com/nprogress/)
  - morrisjs 0.5.1 (http://morrisjs.github.io/morris.js/)
+ - pascalprecht.translate 2.4.2 (https://github.com/angular-translate/angular-translate)
 
 View
  - Bootstrap Twitter 3.3.0 (http://getbootstrap.com/)
