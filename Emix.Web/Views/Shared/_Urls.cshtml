@@ -3,7 +3,8 @@
     var Emix = {
         Api: {
             Test: {
-                sayHello: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Test", action = "SayHello" })'
+                sayHello: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Test", action = "SayHello" })',
+                uploadUrl: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "FileUpload", action = "UploadFiles" })'
             }
         },
         Web: {

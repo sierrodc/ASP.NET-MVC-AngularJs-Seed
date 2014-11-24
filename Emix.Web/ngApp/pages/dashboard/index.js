@@ -22,7 +22,7 @@
 
             httpServices.sayHello($scope.username)
                 .success(function (data, status, headers, config) {
-                    $scope.helloMessage = data;
+                    $scope.helloMessage = data.message;
                 })
                 .error(function (data, status, headers, config) {
                     $scope.helloMessage = 'ERROR FROM SERVER';

@@ -14,11 +14,14 @@ namespace Emix.Web.ControllersWepApi
         }
 
         [HttpGet]
-        public string SayHello(string name)
+        public object SayHello(string name)
         {
             System.Threading.Thread.Sleep(1000);
 
-            return string.Format("Hello {0}", name);
+            return new
+            {
+                Message = string.Format("Hello {0}", name)
+            };
         }
     }
 }

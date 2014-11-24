@@ -7,7 +7,8 @@
     'emixApp.services',
     'mgcrea.ngStrap',
     'ngMorris',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'blueimp.fileupload'
     ])
     .config(['$routeProvider', function ($routeProvider) {
 
@@ -19,6 +20,10 @@
             .when('/section', {
                 controller: 'section_index',
                 templateUrl: 'ngApp/pages/section/index.html'
+            })
+            .when('/fileupload', {
+                controller: 'fileupload_index',
+                templateUrl: 'ngApp/pages/fileupload/index.html'
             })
             .otherwise({
                 redirectTo: '/dashboard'

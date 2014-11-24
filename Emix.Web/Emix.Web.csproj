@@ -654,6 +654,9 @@
     <Content Include="Content\site.css">
       <DependentUpon>site.less</DependentUpon>
     </Content>
+    <Content Include="Content\site.min.css">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
     <Content Include="Content\toastr.css">
       <DependentUpon>toastr.less</DependentUpon>
     </Content>
@@ -661,6 +664,8 @@
     <Content Include="ngApp\directives\ngMorrisCharts.js" />
     <Content Include="ngApp\emixApp.js" />
     <Content Include="ngApp\pages\appMenu.js" />
+    <Content Include="ngApp\pages\fileupload\index.html" />
+    <Content Include="ngApp\pages\fileupload\index.js" />
     <Content Include="ngApp\pages\section\index.html" />
     <Content Include="ngApp\pages\section\index.js" />
     <Content Include="ngApp\pages\dashboard\index.html" />
@@ -1545,6 +1550,8 @@
     <Content Include="Scripts\Vendor_dev\Ring0\raphael.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angular.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\bootstrap.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\jquery.ui.widget.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\jquery.fileupload\jquery.fileupload.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\morris.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\nProgress.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\toastr.js" />
@@ -1561,21 +1568,28 @@
     <Content Include="Scripts\Vendor_dev\Ring2\angular\angular-sanitize.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\angular\angular-scenario.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\angular\angular-touch.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\directive\translate-cloak.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\directive\translate.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\filter\translate.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\default-interpolation.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\handler-log.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\loader-partial.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\loader-static-files.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\loader-url.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\messageformat-interpolation.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\storage-cookie.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\storage-key.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\storage-local.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\translate.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\service\translationCache.js" />
-    <Content Include="Scripts\Vendor_dev\Ring3\translate\translate.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\jquery.fileupload\plugins\jquery.iframe-transport.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-fileupload\jquery.fileupload-angular.js" />
+    <None Include="Scripts\Vendor_dev\Ring2\jquery.fileupload\plugins\extra\jquery.fileupload-audio.js.excluded" />
+    <None Include="Scripts\Vendor_dev\Ring2\jquery.fileupload\plugins\extra\jquery.fileupload-image.js.excluded" />
+    <Content Include="Scripts\Vendor_dev\Ring2\jquery.fileupload\plugins\jquery.fileupload-process.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\jquery.fileupload\plugins\jquery.fileupload-validate.js" />
+    <None Include="Scripts\Vendor_dev\Ring2\jquery.fileupload\plugins\extra\jquery.fileupload-video.js.excluded" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\directive\translate-cloak.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\directive\translate.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\filter\translate.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\default-interpolation.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\handler-log.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\loader-partial.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\loader-static-files.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\loader-url.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\messageformat-interpolation.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\storage-cookie.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\storage-key.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\storage-local.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\translate.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\service\translationCache.js" />
+    <Content Include="Scripts\Vendor_dev\Ring3\ng-translate\translate.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1586,11 +1600,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Settings.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="ControllersWepApi\FileUploadController.cs" />
     <Compile Include="ControllersWepApi\TestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileDescription.cs" />
+    <Compile Include="Models\Messages\Out\FilesUploadResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1609,7 +1626,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Models\Messages\In\" />
     <Folder Include="Scripts\angular-i18n\ngLocale\" />
   </ItemGroup>
   <PropertyGroup>
