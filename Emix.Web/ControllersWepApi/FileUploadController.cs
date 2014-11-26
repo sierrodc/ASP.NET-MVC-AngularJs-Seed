@@ -35,25 +35,19 @@ namespace Emix.Web.ControllersWepApi
                     Id = id,
                     Name = filename,
                     Size = buffer.LongLength,
-                    Url = "#",
+                    Url = "#"
                 });
             }
 
             StaticFileStore.AddRange(newFiles);
 
-            return
-                new FilesUploadResponse
-                {
-                    Files = newFiles
-                };
+            return new FilesUploadResponse { Files = newFiles };
         }
 
         [HttpDelete]
-        public object DeleteFile(Guid id)
+        public bool DeleteFile(Guid id)
         {
-            StaticFileStore.RemoveAll(t => t.Id == id);
-
-            return true;
+            return StaticFileStore.RemoveAll(t => t.Id == id) > 0;
         }
 
 

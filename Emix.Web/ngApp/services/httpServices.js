@@ -8,6 +8,13 @@
                 cache: false,
                 params: {name: name}
             })
+        },
+        deleteFile: function (fileId) {
+            return $http({
+                method: "DELETE",
+                url: Emix.Api.Test.deleteFile + "/" + fileId,
+                cache: false
+            })
         }
     };
 }]);

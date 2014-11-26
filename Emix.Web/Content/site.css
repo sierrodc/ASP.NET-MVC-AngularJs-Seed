@@ -13,6 +13,22 @@
   direction: ltr;
   cursor: pointer;
 }
+/*.file {
+    &.ng-move, &.ng-enter, &.ng-leave {
+        -webkit-transition: all linear 5.5s;
+        -moz-transition: all linear 5.5s;
+        -o-transition: all linear 5.5s;
+        transition: all linear 5.5s;
+    }
+
+    &.ng-leave-active, &.ng-move, &.ng-enter {
+        opacity: 0;
+    }
+
+    &.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter {
+        opacity: 1;
+    }
+}*/
 .loader {
   position: fixed;
   height: 100%;

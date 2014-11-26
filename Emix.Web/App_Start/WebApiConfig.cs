@@ -11,6 +11,10 @@ namespace Emix.Web
         {
             // Web API configuration and services
 
+#if DEBUG
+            config.Filters.Add(new Emix.Web.Utilities.WebApiDelayFilter(new TimeSpan(0, 0, 2)));
+#endif
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

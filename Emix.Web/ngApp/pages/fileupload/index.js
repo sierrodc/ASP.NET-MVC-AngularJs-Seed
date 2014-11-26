@@ -1,12 +1,31 @@
-﻿angular.module('emixApp.controllers').controller('fileupload_index', ['$scope', function ($scope) {
+﻿angular.module('emixApp.controllers').controller('fileupload_index', ['$scope', 'httpServices', function ($scope, httpServices) {
 
     $scope.title = 'File upload';
 
     $scope.options = {
-        url: Emix.Api.Test.uploadUrl,
+        url: Emix.Api.Test.uploadFiles,
         maxFileSize: 5000000,
         autoUpload: false,
         acceptFileTypes: /.*/i // /(\.|\/)(gif|jpe?g|png)$/i
+    };
+
+    $scope.queue = [{ id: 'e14c35d2-2e7d-4885-a32a-d7982e780b29', name: 'pippocalippo.txt', size: 44, url: 'xxx', error: null }];
+
+    $scope.deleteFile = function (file) {
+        $.blockUI();
+        httpServices.deleteFile(file.id)
+            .success(function (data, status, headers, config) {
+                if (data) {
+                    _.remove($scope.queue, function (c) { return c.id == file.id; });
+                }
+            })
+            .error(function (data, status, headers, config) {
+                toastr.error("Unable to delete file");
+            })
+            .finally(function () {
+                NProgress.done();
+                $.unblockUI();
+            });
     };
 
     //if (!isOnGitHub) {

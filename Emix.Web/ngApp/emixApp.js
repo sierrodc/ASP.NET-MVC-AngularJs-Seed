@@ -2,6 +2,7 @@
     ['ngRoute',
     'ngCookies',
     'ngLocale',
+    'ngAnimate',
     'emixApp.controllers',
     'emixApp.directives',
     'emixApp.services',

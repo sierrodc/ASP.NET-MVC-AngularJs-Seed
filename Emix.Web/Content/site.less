@@ -2,21 +2,38 @@
 //FILEUPLOAD
 .fileinput-button {
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
+
+    input[type='file'] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        opacity: 0;
+        -ms-filter: 'alpha(opacity=0)';
+        font-size: 200px;
+        direction: ltr;
+        cursor: pointer;
+    }
 }
 
+/*.file {
+    &.ng-move, &.ng-enter, &.ng-leave {
+        -webkit-transition: all linear 5.5s;
+        -moz-transition: all linear 5.5s;
+        -o-transition: all linear 5.5s;
+        transition: all linear 5.5s;
+    }
 
-.fileinput-button input[type='file'] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    opacity: 0;
-    -ms-filter: 'alpha(opacity=0)';
-    font-size: 200px;
-    direction: ltr;
-    cursor: pointer;
-}
+    &.ng-leave-active, &.ng-move, &.ng-enter {
+        opacity: 0;
+    }
+
+    &.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter {
+        opacity: 1;
+    }
+}*/
+
 
 
 // ------------- LOADER ---------------
