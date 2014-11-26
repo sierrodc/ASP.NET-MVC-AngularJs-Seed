@@ -9,7 +9,7 @@
         acceptFileTypes: /.*/i // /(\.|\/)(gif|jpe?g|png)$/i
     };
 
-    $scope.queue = [{ id: 'e14c35d2-2e7d-4885-a32a-d7982e780b29', name: 'pippocalippo.txt', size: 44, url: 'xxx', error: null }];
+    $scope.queue = [{ id: 'e14c35d2-2e7d-4885-a32a-d7982e780b29', name: 'not_able_to_delete_fake.txt', size: 44, url: '#', error: null }];
 
     $scope.deleteFile = function (file) {
         $.blockUI();
