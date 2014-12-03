@@ -32,6 +32,7 @@ namespace Emix.Web
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/morris.core.css")
                 .Include("~/Content/nProgress.css")
+                .Include("~/Content/transitions.css")
                 .Include("~/Content/site.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,

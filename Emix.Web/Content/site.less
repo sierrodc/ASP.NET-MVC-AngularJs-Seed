@@ -1,5 +1,6 @@
-﻿
-//FILEUPLOAD
+﻿@import (reference) 'transitions.less';
+
+//---------------------------------------------------- FILEUPLOAD
 .fileinput-button {
     position: relative;
     overflow: hidden;
@@ -11,6 +12,7 @@
         margin: 0;
         opacity: 0;
         -ms-filter: 'alpha(opacity=0)';
+        filter: 'alpha(opacity=0)';
         font-size: 200px;
         direction: ltr;
         cursor: pointer;
@@ -33,6 +35,65 @@
         opacity: 1;
     }
 }*/
+
+//--------------------------------------------------- PAGE TRANSITIONS
+@-webkit-keyframes moveFromRight {
+    from {
+        -webkit-transform: translateX(10%);
+        transform: translateX(10%);
+    }
+}
+
+@keyframes moveFromRight {
+    from {
+        -webkit-transform: translateX(10%);
+        transform: translateX(10%);
+    }
+}
+
+
+//PAGE TRANSITIONS from http://tympanus.net/codrops/2013/05/07/a-collection-of-page-transitions/
+body {
+    overflow-x: hidden;
+}
+.pageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+
+    .page {
+        -webkit-transition: all linear 0.5s;
+        -moz-transition: all linear 0.5s;
+        -o-transition: all linear 0.5s;
+        transition: all linear 0.5s;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &.ng-enter {
+            &.ng-enter-active {
+                -webkit-animation: moveFromRight .6s ease both;
+                -moz-animation: moveFromRight .6s ease both;
+                -o-animation: moveFromRight .6s ease both;
+                animation: moveFromRight .6s ease both;
+            }
+        }
+
+        &.ng-leave {
+            display: none;
+            /*&.ng-leave-active {
+                -webkit-animation: scaleDown .2s ease both;
+                -moz-animation: scaleDown .2s ease both;
+                -o-animation: scaleDown .2s ease both;
+                animation: scaleDown .2s ease both;
+            }*/
+        }
+    }
+}
+
 
 
 
@@ -61,14 +122,17 @@
 @-webkit-keyframes rotateplane {
     0% {
         -webkit-transform: perspective(120px);
+        transform: perspective(120px);
     }
 
     50% {
         -webkit-transform: perspective(120px) rotateY(180deg);
+        transform: perspective(120px) rotateY(180deg);
     }
 
     100% {
         -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+        transform: perspective(120px) rotateY(180deg) rotateX(180deg);
     }
 }
 

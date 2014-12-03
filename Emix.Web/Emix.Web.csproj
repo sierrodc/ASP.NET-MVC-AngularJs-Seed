@@ -660,6 +660,9 @@
     <Content Include="Content\toastr.css">
       <DependentUpon>toastr.less</DependentUpon>
     </Content>
+    <Content Include="Content\transitions.css">
+      <DependentUpon>transitions.less</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="ngApp\directives\ngMorrisCharts.js" />
     <Content Include="ngApp\emixApp.js" />
@@ -779,6 +782,7 @@
     <Content Include="ngApp\translations\en-US.json" />
     <Content Include="ngApp\translations\fr-FR.json" />
     <Content Include="ngApp\translations\de-DE.json" />
+    <Content Include="Content\transitions.less" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

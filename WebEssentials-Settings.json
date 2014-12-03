@@ -26,7 +26,7 @@
   },
   "Css": {
     "AdjustRelativePaths": true,
-    "AutoMinify": true,
+    "AutoMinify": false,
     "Autoprefix": false,
     "AutoprefixerBrowsers": null,
     "GenerateRtlSourceMaps": true,
