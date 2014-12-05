@@ -28,7 +28,7 @@
                     hideHover: iAttrs.moHideHover,
                     resize: parseInt(iAttrs.moResize),
                     parseTime: parseInt(iAttrs.moParseTime)
-                })
+                });
             }
         }
     }).directive('ngMorrisBarChart', function () {
