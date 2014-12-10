@@ -27,6 +27,8 @@ namespace Emix.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             GlobalConfiguration.Configure(AutofacConfig.Configure);
+
+            App_Start.Settings.SiteDescription = "This is the default site description meta";
         }
 
         
