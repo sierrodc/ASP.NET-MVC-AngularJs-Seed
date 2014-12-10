@@ -12,10 +12,17 @@ namespace Emix.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/vendor")
+#if DEBUG
                 .IncludeDirectory("~/Scripts/Vendor_dev/Ring0", "*.js", true)
                 .IncludeDirectory("~/Scripts/Vendor_dev/Ring1", "*.js", true)
                 .IncludeDirectory("~/Scripts/Vendor_dev/Ring2", "*.js", true)
                 .IncludeDirectory("~/Scripts/Vendor_dev/Ring3", "*.js", true)
+#else
+                .IncludeDirectory("~/Scripts/Vendor/Ring0", "*.js", true)
+                .IncludeDirectory("~/Scripts/Vendor/Ring1", "*.js", true)
+                .IncludeDirectory("~/Scripts/Vendor/Ring2", "*.js", true)
+                .IncludeDirectory("~/Scripts/Vendor/Ring3", "*.js", true)
+#endif
                 .IncludeDirectory("~/Scripts/Custom", "*.js", true)
                 );
 
