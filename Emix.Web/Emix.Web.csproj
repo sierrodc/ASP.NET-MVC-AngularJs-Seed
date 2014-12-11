@@ -768,6 +768,7 @@
     <Content Include="Content\fontawesome\bordered-pulled.less" />
     <Content Include="Content\morris.core.less" />
     <Content Include="Content\site.less" />
+    <None Include="ngApp\_references.js" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1541,9 +1542,9 @@
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-process.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-validate.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.iframe-transport.js" />
+    <Content Include="Scripts\Vendor\Ring1\ui-bootstrap-tpls-0.12.0.min.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-fileupload\jquery.fileupload-angular.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular.js" />
-    <Content Include="Scripts\Vendor\Ring1\bootstrap.js" />
     <Content Include="Scripts\Vendor\Ring1\morris.js" />
     <Content Include="Scripts\Vendor\Ring1\nProgress.js" />
     <Content Include="Scripts\Vendor\Ring1\toastr.js" />
@@ -1578,12 +1579,12 @@
     <Content Include="Scripts\Vendor_dev\Ring0\modernizr-2.8.3.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\raphael.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\bootstrap.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery.ui.widget.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery.fileupload\jquery.fileupload.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\morris.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\nProgress.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\toastr.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\ui-bootstrap-tpls-0.12.0.min.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\angular-strap.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\angular-strap.tpl.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angularjs\modules\angular-animate.js" />
