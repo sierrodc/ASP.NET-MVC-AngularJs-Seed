@@ -1,4 +1,6 @@
-﻿angular.module('emixApp.controllers').controller('fileupload_index', ['$scope', 'httpServices', function ($scope, httpServices) {
+﻿'use strict';
+
+angular.module('emixApp.controllers').controller('fileupload_index', ['$scope', 'httpServices', function ($scope, httpServices) {
 
     $scope.title = 'File upload';
 

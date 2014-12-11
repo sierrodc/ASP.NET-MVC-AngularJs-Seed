@@ -1,4 +1,6 @@
-﻿angular.module('ngMorris.directive', [])
+﻿'use strict';
+
+angular.module('ngMorris.directive', [])
     .directive('ngMorrisAreaChart', function () {
         return {
             restrict: 'A',

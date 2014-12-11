@@ -1,4 +1,6 @@
-﻿angular.module('emixApp.controllers').controller('dashboard_index',
+﻿'use strict';
+
+angular.module('emixApp.controllers').controller('dashboard_index',
     ['$scope', 'httpServices', function ($scope, httpServices) {
 
         $scope.title = new Date();
