@@ -1,4 +1,5 @@
-﻿/// <reference path="Vendor_dev/Ring0/jquery-2.1.1.js" />
+﻿/// <autosync enabled="true" />
+/// <reference path="Vendor_dev/Ring0/jquery-2.1.1.js" />
 /// <reference path="Vendor_dev/Ring0/lodash.js" />
 /// <reference path="Vendor_dev/Ring0/modernizr-2.8.3.js" />
 /// <reference path="Vendor_dev/Ring0/moment-with-locales.js" />

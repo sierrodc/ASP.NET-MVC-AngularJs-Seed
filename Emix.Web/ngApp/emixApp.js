@@ -8,6 +8,7 @@ angular.module('emixApp',
     'emixApp.controllers',
     'emixApp.directives',
     'emixApp.services',
+    'ui.bootstrap', //ui boostrap must be loaded before ngStrap
     'mgcrea.ngStrap',
     'ngMorris',
     'pascalprecht.translate',
