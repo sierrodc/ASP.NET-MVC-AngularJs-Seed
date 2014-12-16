@@ -1,4 +1,6 @@
-﻿angular.module('emixApp',
+﻿'use strict';
+
+angular.module('emixApp',
     ['ngRoute',
     'ngCookies',
     'ngLocale',

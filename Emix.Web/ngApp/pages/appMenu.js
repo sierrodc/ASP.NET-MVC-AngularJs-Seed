@@ -1,4 +1,6 @@
-﻿angular.module('emixApp.controllers').controller('appMenu', ['$scope', '$window', '$location', '$translate', function ($scope, $window, $location, $translate) {
+﻿'use strict';
+
+angular.module('emixApp.controllers').controller('appMenu', ['$scope', '$window', '$location', '$translate', function ($scope, $window, $location, $translate) {
 
     $scope.isMenuActive = function (path) {
         return $location.path().substr(0, path.length) == path;

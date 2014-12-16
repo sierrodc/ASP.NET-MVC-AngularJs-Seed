@@ -1,4 +1,6 @@
-﻿angular.module('emixApp.services').service('httpServices', ['$http', function ($http) {
+﻿'use strict';
+
+angular.module('emixApp.services').service('httpServices', ['$http', function ($http) {
 
     return {
         sayHello: function (name) {
