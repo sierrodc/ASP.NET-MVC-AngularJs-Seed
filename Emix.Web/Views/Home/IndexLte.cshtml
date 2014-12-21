@@ -249,6 +249,17 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="dropdown" dropdown>
+                    <a href="" class="dropdown-toggle" dropdown-toggle>Language <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-class="{ active: isLanguageActive('it-IT')}"><a href="" ng-click="changeLanguage('it-IT')"><span class="flag-icon flag-icon-it"></span> Italiano</a></li>
+                        <li ng-class="{ active: isLanguageActive('en-US')}"><a href="" ng-click="changeLanguage('en-US')"><span class="flag-icon flag-icon-us"></span> English</a></li>
+                        <li class="divider"></li>
+                        <li ng-class="{ active: isLanguageActive('fr-FR')}"><a href="" ng-click="changeLanguage('fr-FR')"><span class="flag-icon flag-icon-fr"></span> French</a></li>
+                        <li ng-class="{ active: isLanguageActive('de-DE')}"><a href="" ng-click="changeLanguage('de-DE')"><span class="flag-icon flag-icon-de"></span> German</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>
@@ -266,7 +277,7 @@
                 </div>
                 <div class="pull-left info">
                     <p>Hello, Jane</p>
-                    <a href="#/"><i class="fa fa-circle text-success"></i> Online</a>
+                    <a href=""><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
             <!-- search form -->

@@ -704,7 +704,7 @@
     <Content Include="ngApp\emixApp.js" />
     <Content Include="ngApp\pages\appAsideLte.js" />
     <Content Include="ngApp\pages\appHeaderLte.js" />
-    <Content Include="ngApp\pages\appMenu.js" />
+    <Content Include="ngApp\pages\appHeader.js" />
     <Content Include="ngApp\pages\fileupload\index.html" />
     <Content Include="ngApp\pages\fileupload\index.js" />
     <Content Include="ngApp\pages\section\index.html" />
