@@ -21,5 +21,10 @@ namespace Emix.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult IndexLte()
+        {
+            return View();
+        }
     }
 }

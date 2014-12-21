@@ -42,6 +42,19 @@ namespace Emix.Web
                 .Include("~/Content/transitions.css")
                 .Include("~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/Ltecss")
+                .Include("~/Content/bootstrap/bootstrap.css")
+                .Include("~/Content/bootstrap-additions/bootstrap-additions.css")
+                .Include("~/Content/fontawesome/font-awesome.css")
+                .Include("~/Content/flag-icon/flag-icon.css")
+                .Include("~/Content/ionicons/ionicons.css")
+                .Include("~/Content/toastr.css")
+                .Include("~/Content/morris.core.css")
+                .Include("~/Content/nProgress.css")
+                .Include("~/Content/transitions.css")
+                .Include("~/Content/AdminLte/AdminLte.css")
+                .Include("~/Content/site.css"));
+
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = false;

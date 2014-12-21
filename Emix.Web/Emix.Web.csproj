@@ -134,6 +134,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AdminLte\AdminLte.css">
+      <DependentUpon>AdminLte.less</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-additions\bootstrap-additions.css" />
     <Content Include="Content\bootstrap\bootstrap.css">
       <DependentUpon>bootstrap.less</DependentUpon>
@@ -647,6 +650,38 @@
     </Content>
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\ionicons.svg" />
+    <Content Include="Content\img\ajax-loader.gif" />
+    <Content Include="Content\img\ajax-loader1.gif" />
+    <Content Include="Content\img\avatar.png" />
+    <Content Include="Content\img\avatar04.png" />
+    <Content Include="Content\img\avatar2.png" />
+    <Content Include="Content\img\avatar3.png" />
+    <Content Include="Content\img\avatar5.png" />
+    <Content Include="Content\img\blur-background04.jpg" />
+    <Content Include="Content\img\blur-background08.jpg" />
+    <Content Include="Content\img\blur-background09.jpg" />
+    <Content Include="Content\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Content\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Content\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Content\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="Content\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Content\img\credit\american-express.png" />
+    <Content Include="Content\img\credit\cirrus.png" />
+    <Content Include="Content\img\credit\mastercard.png" />
+    <Content Include="Content\img\credit\mestro.png" />
+    <Content Include="Content\img\credit\paypal.png" />
+    <Content Include="Content\img\credit\paypal2.png" />
+    <Content Include="Content\img\credit\visa.png" />
+    <Content Include="Content\img\icons.png" />
+    <Content Include="Content\img\sprite-skin-flat.png" />
+    <Content Include="Content\img\sprite-skin-nice.png" />
+    <Content Include="Content\img\user-bg.png" />
+    <Content Include="Content\img\user.jpg" />
+    <Content Include="Content\img\user2.jpg" />
+    <Content Include="Content\ionicons\ionicons.css">
+      <DependentUpon>ionicons.less</DependentUpon>
+    </Content>
     <Content Include="Content\morris.core.css">
       <DependentUpon>morris.core.less</DependentUpon>
     </Content>
@@ -664,8 +699,11 @@
       <DependentUpon>transitions.less</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="ngApp\directives\ngToggleAsideLte.js" />
     <Content Include="ngApp\directives\ngMorrisCharts.js" />
     <Content Include="ngApp\emixApp.js" />
+    <Content Include="ngApp\pages\appAsideLte.js" />
+    <Content Include="ngApp\pages\appHeaderLte.js" />
     <Content Include="ngApp\pages\appMenu.js" />
     <Content Include="ngApp\pages\fileupload\index.html" />
     <Content Include="ngApp\pages\fileupload\index.js" />
@@ -783,6 +821,38 @@
     <Content Include="ngApp\translations\fr-FR.json" />
     <Content Include="ngApp\translations\de-DE.json" />
     <Content Include="Content\transitions.less" />
+    <Content Include="Content\ionicons\ionicons.less" />
+    <Content Include="Content\ionicons\_ionicons-font.less" />
+    <Content Include="Content\ionicons\_ionicons-icons.less" />
+    <Content Include="Content\ionicons\_ionicons-variables.less" />
+    <Content Include="Content\fonts\ionicons.eot" />
+    <Content Include="Content\fonts\ionicons.ttf" />
+    <Content Include="Content\fonts\ionicons.woff" />
+    <Content Include="Content\AdminLte\404_500_errors.less" />
+    <Content Include="Content\AdminLte\AdminLte.less" />
+    <Content Include="Content\AdminLte\alerts.less" />
+    <Content Include="Content\AdminLte\bootstrap-social.less" />
+    <Content Include="Content\AdminLte\boxes.less" />
+    <Content Include="Content\AdminLte\buttons.less" />
+    <Content Include="Content\AdminLte\callout.less" />
+    <Content Include="Content\AdminLte\core.less" />
+    <Content Include="Content\AdminLte\dropdown.less" />
+    <Content Include="Content\AdminLte\forms.less" />
+    <Content Include="Content\AdminLte\header.less" />
+    <Content Include="Content\AdminLte\iCheck.less" />
+    <Content Include="Content\AdminLte\invoice.less" />
+    <Content Include="Content\AdminLte\lockscreen.less" />
+    <Content Include="Content\AdminLte\login_and_register.less" />
+    <Content Include="Content\AdminLte\mailbox.less" />
+    <Content Include="Content\AdminLte\mixins.less" />
+    <Content Include="Content\AdminLte\navs.less" />
+    <Content Include="Content\AdminLte\pace.less" />
+    <Content Include="Content\AdminLte\progress-bars.less" />
+    <Content Include="Content\AdminLte\sidebar.less" />
+    <Content Include="Content\AdminLte\skins.less" />
+    <Content Include="Content\AdminLte\small-box.less" />
+    <Content Include="Content\AdminLte\timeline.less" />
+    <Content Include="Content\AdminLte\vars.less" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1537,6 +1607,9 @@
     <Content Include="Scripts\Vendor\Ring0\raphael.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\angular.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular.js" />
+    <Content Include="Scripts\Vendor\Ring1\jquery-slimScroll.js" />
+    <Content Include="Scripts\Vendor\Ring2\angular-slimScroll.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\jquery.fileupload.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-process.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-validate.js" />
@@ -1583,6 +1656,7 @@
     <Content Include="Scripts\Vendor_dev\Ring1\morris.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\nProgress.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\toastr.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\angular-slimScroll.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\ui-bootstrap-tpls-0.12.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\angular-strap.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\angular-strap.tpl.js" />
@@ -1650,6 +1724,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Urls.cshtml" />
+    <Content Include="Views\Home\IndexLte.cshtml" />
+    <Content Include="Views\Shared\_LayoutLte.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -9,6 +9,8 @@ angular.module('emixApp',
     'emixApp.directives',
     'emixApp.services',
     'ui.bootstrap', //ui boostrap must be loaded before ngStrap
+    'ui.slimscroll',
+    'ui.emixLte', //AdminLte specific code
     'mgcrea.ngStrap',
     'ngMorris',
     'pascalprecht.translate',
@@ -21,7 +23,7 @@ angular.module('emixApp',
                 controller: 'dashboard_index',
                 templateUrl: 'ngApp/pages/dashboard/index.html'
             })
-            .when('/section', {
+            .when('/charts/morris', {
                 controller: 'section_index',
                 templateUrl: 'ngApp/pages/section/index.html'
             })
