@@ -1600,7 +1600,7 @@
     <Content Include="Scripts\angular-i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_zu.js" />
     <Content Include="Scripts\Custom\blockui.js" />
-    <Content Include="Scripts\Vendor\Ring0\jquery-2.1.1.js" />
+    <Content Include="Scripts\Vendor\Ring0\jquery-2.1.3.js" />
     <Content Include="Scripts\Vendor\Ring0\lodash.js" />
     <Content Include="Scripts\Vendor\Ring0\modernizr-2.8.3.js" />
     <Content Include="Scripts\Vendor\Ring0\moment-with-locales.js" />
@@ -1646,7 +1646,7 @@
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\translate.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\translationCache.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-translate\translate.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\jquery-2.1.1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\jquery-2.1.3.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\lodash.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\modernizr-2.8.3.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales.js" />
