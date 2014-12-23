@@ -93,7 +93,7 @@
     "RunOnBuild": false
   },
   "JavaScript": {
-    "AutoMinify": true,
+    "AutoMinify": false,
     "BlockCommentCompletion": true,
     "EvalTreatment": "MakeImmediateSafe",
     "GenerateSourceMaps": true,
@@ -103,9 +103,10 @@
     "LintResultLocation": "Message",
     "MakeMinified": true,
     "OutputDirectory": null,
-    "RootDirectory": "/Scripts/",
+    "RootDirectory": "/ngApp/",
     "RunOnBuild": false,
     "TermSemicolons": true
+    
   },
   "Less": {
     "CompileOnBuild": false,

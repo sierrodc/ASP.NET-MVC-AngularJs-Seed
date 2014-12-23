@@ -1,7 +1,7 @@
-﻿'use strict';
-
-angular.module('emixApp.controllers').controller('dashboard_index',
+﻿angular.module('emixApp.controllers').controller('dashboard_index',
     ['$scope', 'httpServices', function ($scope, httpServices) {
+        'use strict';
+
 
         $scope.title = new Date();
         $scope.username = "";
@@ -23,10 +23,10 @@ angular.module('emixApp.controllers').controller('dashboard_index',
             $.blockUI();
 
             httpServices.sayHello($scope.username)
-                .success(function (data, status, headers, config) {
+                .success(function (data/*, status, headers, config*/) {
                     $scope.helloMessage = data.message;
                 })
-                .error(function (data, status, headers, config) {
+                .error(function (/*data, status, headers, config*/) {
                     $scope.helloMessage = 'ERROR FROM SERVER';
                 })
                 .finally(function () {

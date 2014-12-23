@@ -3,7 +3,7 @@
 
     return {
         restrict: 'A',
-        link: function ($scope, $elem, $attr) {
+        link: function ($scope, $elem/*, $attr*/) {
             $($elem).click(function (e) {
                 e.preventDefault();
 

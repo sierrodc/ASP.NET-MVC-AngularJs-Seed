@@ -1,6 +1,6 @@
-﻿'use strict';
-
+﻿
 angular.module('emixApp.controllers').controller('fileupload_index', ['$scope', 'httpServices', function ($scope, httpServices) {
+    'use strict';
 
     $scope.title = 'File upload';
 
@@ -16,12 +16,12 @@ angular.module('emixApp.controllers').controller('fileupload_index', ['$scope', 
     $scope.deleteFile = function (file) {
         $.blockUI();
         httpServices.deleteFile(file.id)
-            .success(function (data, status, headers, config) {
+            .success(function (data/*, status, headers, config*/) {
                 if (data) {
-                    _.remove($scope.queue, function (c) { return c.id == file.id; });
+                    _.remove($scope.queue, function (c) { return c.id === file.id; });
                 }
             })
-            .error(function (data, status, headers, config) {
+            .error(function (/*data, status, headers, config*/) {
                 toastr.error("Unable to delete file");
             })
             .finally(function () {

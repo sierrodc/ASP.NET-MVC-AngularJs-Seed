@@ -1,6 +1,7 @@
-﻿'use strict';
+﻿
 
 angular.module('emixApp.controllers').controller('appHeaderLte', ['$scope', '$window', '$location', '$translate', function ($scope, $window, $location, $translate) {
+    'use strict';
 
     $scope.isLanguageActive = function (language) {
         return language == $translate.use();
@@ -12,5 +13,5 @@ angular.module('emixApp.controllers').controller('appHeaderLte', ['$scope', '$wi
         $translate.storage().set($translate.storageKey(), language);
 
         $window.location.reload(); //refresh current page reloading correct culture
-    }
+    };
 }]);

@@ -1,6 +1,7 @@
-﻿'use strict';
+﻿
 
 angular.module('emixApp.controllers').controller('appAsideLte', ['$scope', '$window', '$location', '$translate', function ($scope, $window, $location, $translate) {
+    'use strict';
 
     $scope.isMenuActive = function (path) {
         return ('#' + $location.path()).substr(0, path.length) == path;
@@ -10,7 +11,7 @@ angular.module('emixApp.controllers').controller('appAsideLte', ['$scope', '$win
         if (menuEntry.isGroup) {
             menuEntry.isExpanded = !menuEntry.isExpanded; //expanded if clicked
         }
-    }
+    };
 
     $scope.menuEntries = [
         {

@@ -1,6 +1,5 @@
 ﻿
 ; (function () {
-    /*jshint eqeqeq:false curly:false latedef:false */
     "use strict";
 
     function setup($) {
@@ -11,7 +10,7 @@
         
         var pageBlock = null;
 
-        function install(el) {
+        function install(/*el*/) {
             
             if (pageBlock)
                 remove();

@@ -1,6 +1,6 @@
-﻿'use strict';
-
+﻿
 angular.module('emixApp.controllers').controller('section_index', ['$scope', function ($scope) {
+    'use strict';
 
     $scope.title = 'Section';
 
