@@ -4,11 +4,11 @@ angular.module('emixApp.controllers').controller('appHeader', ['$scope', '$windo
     'use strict';
 
     $scope.isMenuActive = function (path) {
-        return $location.path().substr(0, path.length) == path;
+        return $location.path().substr(0, path.length) === path;
     };
 
     $scope.isLanguageActive = function (language) {
-        return language == $translate.use();
+        return language === $translate.use();
     };
 
     $scope.changeLanguage = function (language) {

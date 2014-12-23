@@ -1,13 +1,13 @@
 ﻿
 
-angular.module('emixApp.controllers').controller('appAsideLte', ['$scope', '$window', '$location', '$translate', function ($scope, $window, $location, $translate) {
+angular.module('emixApp.controllers').controller('appAsideLte', ['$scope', '$window', '$location', '$translate', function ($scope, $window, $location/*, $translate*/) {
     'use strict';
 
     $scope.isMenuActive = function (path) {
-        return ('#' + $location.path()).substr(0, path.length) == path;
+        return ('#' + $location.path()).substr(0, path.length) === path;
     };
 
-    $scope.expandMenuItem = function (menuEntry, $event) {
+    $scope.expandMenuItem = function (menuEntry) {
         if (menuEntry.isGroup) {
             menuEntry.isExpanded = !menuEntry.isExpanded; //expanded if clicked
         }

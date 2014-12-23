@@ -4,7 +4,7 @@ angular.module('emixApp.controllers').controller('appHeaderLte', ['$scope', '$wi
     'use strict';
 
     $scope.isLanguageActive = function (language) {
-        return language == $translate.use();
+        return language === $translate.use();
     };
 
     $scope.changeLanguage = function (language) {
