@@ -51,6 +51,7 @@ namespace Emix.Web
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/morris.core.css")
                 .Include("~/Content/nProgress.css")
+                .Include("~/Content/fullcalendar.css")
                 .Include("~/Content/transitions.css")
                 .Include("~/Content/AdminLte/AdminLte.css")
                 .Include("~/Content/site.css"));

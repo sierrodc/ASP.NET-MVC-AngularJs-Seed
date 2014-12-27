@@ -11,6 +11,7 @@
         'emixApp.services',
         'ui.bootstrap', //ui boostrap must be loaded before ngStrap
         'ui.slimscroll',
+        'ui.calendar',
         'ui.emixLte', //AdminLte specific code
         'mgcrea.ngStrap',
         'ngMorris',
@@ -31,6 +32,14 @@
                 .when('/fileupload', {
                     controller: 'fileupload_index',
                     templateUrl: 'ngApp/pages/fileupload/index.html'
+                })
+                .when('/blank', {
+                    controller: 'blank_index',
+                    templateUrl: 'ngApp/pages/blank/index.html'
+                })
+                .when('/fullcalendar', {
+                    controller: 'fullcalendar_index',
+                    templateUrl: 'ngApp/pages/fullcalendar/index.html'
                 })
                 .otherwise({
                     redirectTo: '/dashboard'

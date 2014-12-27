@@ -43,6 +43,16 @@ angular.module('emixApp.controllers').controller('appAsideLte', ['$scope', '$win
                 url: '/charts/inline'
             }*/]
         },
+        {
+            text: 'Fullpage calendar',
+            icon: 'fa-calendar',
+            url: '#/fullcalendar'
+        },
+        {
+            text: 'Blank page',
+            icon: 'fa-file-o',
+            url: '#/blank'
+        },
         /*{
             text: '[MISSING] Widgets',
             icon: 'fa-th',

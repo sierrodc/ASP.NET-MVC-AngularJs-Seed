@@ -651,6 +651,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\ionicons.svg" />
+    <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\img\ajax-loader.gif" />
     <Content Include="Content\img\ajax-loader1.gif" />
     <Content Include="Content\img\avatar.png" />
@@ -705,8 +706,12 @@
     <Content Include="ngApp\pages\appAsideLte.js" />
     <Content Include="ngApp\pages\appHeaderLte.js" />
     <Content Include="ngApp\pages\appHeader.js" />
+    <Content Include="ngApp\pages\fullcalendar\index.html" />
+    <Content Include="ngApp\pages\fullcalendar\index.js" />
     <Content Include="ngApp\pages\fileupload\index.html" />
     <Content Include="ngApp\pages\fileupload\index.js" />
+    <Content Include="ngApp\pages\blank\index.html" />
+    <Content Include="ngApp\pages\blank\index.js" />
     <Content Include="ngApp\pages\section\index.html" />
     <Content Include="ngApp\pages\section\index.js" />
     <Content Include="ngApp\pages\dashboard\index.html" />
@@ -1607,9 +1612,14 @@
     <Content Include="Scripts\Vendor\Ring0\raphael-2.1.2.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\angular-1.3.8.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular.js" />
+    <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\languages\lang-all.js" />
+    <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\morris-0.5.1.js" />
     <Content Include="Scripts\Vendor\Ring2\angular-slimScroll.js" />
+    <Content Include="Scripts\Vendor\Ring2\ui-calendar.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\languages\lang-all.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\jquery.fileupload.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-process.js" />
@@ -1697,6 +1707,7 @@
     <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\service\translationCache.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\translate.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\ui-calendar.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
