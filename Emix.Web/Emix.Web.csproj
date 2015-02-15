@@ -138,8 +138,8 @@
       <DependentUpon>AdminLte.less</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-additions\bootstrap-additions.css" />
-    <Content Include="Content\bootstrap\bootstrap.css">
-      <DependentUpon>bootstrap.less</DependentUpon>
+    <Content Include="Content\bootstrap\bootstrap-3.3.2.css">
+      <DependentUpon>bootstrap-3.3.2.less</DependentUpon>
     </Content>
     <Content Include="Content\flag-icon\flag-icon.css">
       <DependentUpon>flag-icon.less</DependentUpon>
@@ -645,8 +645,8 @@
     <Content Include="Content\flags\4x3\za.svg" />
     <Content Include="Content\flags\4x3\zm.svg" />
     <Content Include="Content\flags\4x3\zw.svg" />
-    <Content Include="Content\fontawesome\font-awesome.css">
-      <DependentUpon>font-awesome.less</DependentUpon>
+    <Content Include="Content\fontawesome\font-awesome-4.3.0.css">
+      <DependentUpon>font-awesome-4.3.0.less</DependentUpon>
     </Content>
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -706,16 +706,16 @@
     <Content Include="ngApp\pages\appAsideLte.js" />
     <Content Include="ngApp\pages\appHeaderLte.js" />
     <Content Include="ngApp\pages\appHeader.js" />
-    <Content Include="ngApp\pages\fullcalendar\index.html" />
-    <Content Include="ngApp\pages\fullcalendar\index.js" />
-    <Content Include="ngApp\pages\fileupload\index.html" />
-    <Content Include="ngApp\pages\fileupload\index.js" />
-    <Content Include="ngApp\pages\blank\index.html" />
-    <Content Include="ngApp\pages\blank\index.js" />
-    <Content Include="ngApp\pages\section\index.html" />
-    <Content Include="ngApp\pages\section\index.js" />
-    <Content Include="ngApp\pages\dashboard\index.html" />
-    <Content Include="ngApp\pages\dashboard\index.js" />
+    <Content Include="ngApp\pages\samples\fullcalendar\index.html" />
+    <Content Include="ngApp\pages\samples\fullcalendar\index.js" />
+    <Content Include="ngApp\pages\samples\fileupload\index.html" />
+    <Content Include="ngApp\pages\samples\fileupload\index.js" />
+    <Content Include="ngApp\pages\samples\blank\index.html" />
+    <Content Include="ngApp\pages\samples\blank\index.js" />
+    <Content Include="ngApp\pages\samples\section\index.html" />
+    <Content Include="ngApp\pages\samples\section\index.js" />
+    <Content Include="ngApp\pages\samples\dashboard\index.html" />
+    <Content Include="ngApp\pages\samples\dashboard\index.js" />
     <Content Include="ngApp\services\httpServices.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -787,7 +787,7 @@
     <Content Include="Content\bootstrap\buttons.less" />
     <Content Include="Content\bootstrap\button-groups.less" />
     <Content Include="Content\bootstrap\breadcrumbs.less" />
-    <Content Include="Content\bootstrap\bootstrap.less" />
+    <Content Include="Content\bootstrap\bootstrap-3.3.2.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\toastr.less" />
@@ -804,7 +804,7 @@
     <Content Include="Content\fontawesome\list.less" />
     <Content Include="Content\fontawesome\larger.less" />
     <Content Include="Content\fontawesome\icons.less" />
-    <Content Include="Content\fontawesome\font-awesome.less" />
+    <Content Include="Content\fontawesome\font-awesome-4.3.0.less" />
     <Content Include="Content\fontawesome\fixed-width.less" />
     <Content Include="Content\fontawesome\extras.less" />
     <Content Include="Content\fontawesome\core.less" />
@@ -858,6 +858,10 @@
     <Content Include="Content\AdminLte\small-box.less" />
     <Content Include="Content\AdminLte\timeline.less" />
     <Content Include="Content\AdminLte\vars.less" />
+    <Content Include="Content\bootstrap\.csscomb.json" />
+    <Content Include="Content\bootstrap\.csslintrc" />
+    <Content Include="Content\fontawesome\animated.less" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1606,20 +1610,22 @@
     <Content Include="Scripts\angular-i18n\angular-locale_zu.js" />
     <Content Include="Scripts\Custom\blockui.js" />
     <Content Include="Scripts\Vendor\Ring0\jquery-2.1.3.js" />
-    <Content Include="Scripts\Vendor\Ring0\lodash-2.4.1.js" />
+    <Content Include="Scripts\Vendor\Ring0\lodash-3.2.0.js" />
     <Content Include="Scripts\Vendor\Ring0\modernizr-2.8.3.js" />
-    <Content Include="Scripts\Vendor\Ring0\moment-with-locales-2.8.4.js" />
+    <Content Include="Scripts\Vendor\Ring0\moment-with-locales-2.9.0.js" />
     <Content Include="Scripts\Vendor\Ring0\raphael-2.1.2.js" />
-    <Content Include="Scripts\Vendor\Ring1\angularjs\angular-1.3.8.js" />
+    <Content Include="Scripts\Vendor\Ring1\angularjs\angular-1.4.0.b4.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular.js" />
     <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\languages\lang-all.js" />
-    <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar.js" />
+    <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar-2.2.7.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\morris-0.5.1.js" />
     <Content Include="Scripts\Vendor\Ring2\angular-slimScroll.js" />
-    <Content Include="Scripts\Vendor\Ring2\ui-calendar.js" />
+    <Content Include="Scripts\Vendor\Ring2\ng-strap\angular-strap-2.1.6.js" />
+    <Content Include="Scripts\Vendor\Ring2\ui-calendar-0.8.1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular-1.4.0.b4.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\languages\lang-all.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar-2.2.7.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\jquery.fileupload.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-process.js" />
@@ -1627,10 +1633,8 @@
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.iframe-transport.js" />
     <Content Include="Scripts\Vendor\Ring2\ui-bootstrap-tpls-0.12.0.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-fileupload\jquery.fileupload-angular.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular1.3.8.js" />
     <Content Include="Scripts\Vendor\Ring1\nProgress-0.1.6.js" />
     <Content Include="Scripts\Vendor\Ring1\toastr-2.1.0.js" />
-    <Content Include="Scripts\Vendor\Ring2\ng-strap\angular-strap-2.1.4.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-strap\modules\angular-strap.tpl.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular-animate.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular-aria.js" />
@@ -1657,9 +1661,9 @@
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\translationCache.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-translate\translate.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\jquery-2.1.3.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\lodash-2.4.1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\lodash-3.2.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\modernizr-2.8.3.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales-2.8.4.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales-2.9.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\raphael-2.1.2.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery.ui.widget.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery.fileupload\jquery.fileupload.js" />
@@ -1667,8 +1671,8 @@
     <Content Include="Scripts\Vendor_dev\Ring1\nProgress-0.1.6.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\toastr-2.1.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\angular-slimScroll.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\ng-strap\angular-strap-2.1.6.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\ui-bootstrap-tpls-0.12.0.js" />
-    <Content Include="Scripts\Vendor_dev\Ring2\ng-strap\angular-strap-2.1.4.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\ng-strap\modules\angular-strap.tpl.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angularjs\modules\angular-animate.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angularjs\modules\angular-aria.js" />
@@ -1706,8 +1710,10 @@
     <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\service\translate.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\service\translationCache.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\translate.js" />
+    <Content Include="Scripts\Vendor\Ring1\bootstrap.js.excluded" />
+    <Content Include="Scripts\Vendor_dev\Ring1\bootstrap.js.excluded" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Scripts\Vendor_dev\Ring2\ui-calendar.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\ui-calendar-0.8.1.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

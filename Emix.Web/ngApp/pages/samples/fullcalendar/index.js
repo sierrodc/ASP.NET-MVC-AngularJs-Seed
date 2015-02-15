@@ -102,7 +102,7 @@ angular.module('emixApp.controllers').controller('fullcalendar_index', ['$scope'
         //add new event
         $scope.events.push({ title: 'Manual event of ' + endDate.diff(startDate, 'days') + ' days', start: startDate, end: endDate })
     };
-    debugger;
+
     /* config object */
     $scope.uiConfig = {
         calendar: {

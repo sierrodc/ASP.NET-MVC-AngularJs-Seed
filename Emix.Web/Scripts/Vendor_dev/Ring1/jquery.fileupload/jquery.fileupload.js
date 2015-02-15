@@ -1,5 +1,5 @@
 /*
- * jQuery File Upload Plugin 5.42.0
+ * jQuery File Upload Plugin 5.42.3
  * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2010, Sebastian Tschan
@@ -10,7 +10,7 @@
  */
 
 /* jshint nomen:false */
-/* global define, window, document, location, Blob, FormData */
+/* global define, require, window, document, location, Blob, FormData */
 
 (function (factory) {
     'use strict';
@@ -20,6 +20,12 @@
             'jquery',
             'jquery.ui.widget'
         ], factory);
+    } else if (typeof exports === 'object') {
+        // Node/CommonJS:
+        factory(
+            require('jquery'),
+            require('./vendor/jquery.ui.widget')
+        );
     } else {
         // Browser globals:
         factory(window.jQuery);
@@ -60,7 +66,7 @@
             if (dataTransfer && $.inArray('Files', dataTransfer.types) !== -1 &&
                     this._trigger(
                         type,
-                        $.Event(type, {delegatedEvent: e})
+                        $.Event(type, { delegatedEvent: e })
                     ) !== false) {
                 e.preventDefault();
                 if (isDragOver) {
@@ -321,7 +327,7 @@
             if ($.type(options.formData) === 'object') {
                 formData = [];
                 $.each(options.formData, function (name, value) {
-                    formData.push({name: name, value: value});
+                    formData.push({ name: name, value: value });
                 });
                 return formData;
             }
@@ -394,14 +400,14 @@
                 // property calculated accordingly:
                 this._trigger(
                     'progress',
-                    $.Event('progress', {delegatedEvent: e}),
+                    $.Event('progress', { delegatedEvent: e }),
                     data
                 );
                 // Trigger a global progress event for all current file uploads,
                 // including ajax calls queued for sequential file uploads:
                 this._trigger(
                     'progressall',
-                    $.Event('progressall', {delegatedEvent: e}),
+                    $.Event('progressall', { delegatedEvent: e }),
                     this._progress
                 );
             }
@@ -662,7 +668,7 @@
                     data.jqXHR = this.jqXHR =
                         (that._trigger(
                             'submit',
-                            $.Event('submit', {delegatedEvent: e}),
+                            $.Event('submit', { delegatedEvent: e }),
                             this
                         ) !== false) && that._onSend(e, this);
                 }
@@ -892,7 +898,7 @@
                     jqXHR = jqXHR || (
                         ((aborted || that._trigger(
                             'send',
-                            $.Event('send', {delegatedEvent: e}),
+                            $.Event('send', { delegatedEvent: e }),
                             options
                         ) === false) &&
                         that._getXHRPromise(false, options.context, aborted)) ||
@@ -1026,7 +1032,7 @@
                 that._addConvenienceMethods(e, newData);
                 result = that._trigger(
                     'add',
-                    $.Event('add', {delegatedEvent: e}),
+                    $.Event('add', { delegatedEvent: e }),
                     newData
                 );
                 return result;
@@ -1174,7 +1180,7 @@
                 // If the files property is not available, the browser does not
                 // support the File API and we add a pseudo File object with
                 // the input value as name with path information removed:
-                files = [{name: value.replace(/^.*\\/, '')}];
+                files = [{ name: value.replace(/^.*\\/, '') }];
             } else if (files[0].name === undefined && files[0].fileName) {
                 // File normalization for Safari 4 and Firefox 3:
                 $.each(files, function (index, file) {
@@ -1213,7 +1219,7 @@
                 }
                 if (that._trigger(
                         'change',
-                        $.Event('change', {delegatedEvent: e}),
+                        $.Event('change', { delegatedEvent: e }),
                         data
                     ) !== false) {
                     that._onAdd(e, data);
@@ -1224,7 +1230,7 @@
         _onPaste: function (e) {
             var items = e.originalEvent && e.originalEvent.clipboardData &&
                     e.originalEvent.clipboardData.items,
-                data = {files: []};
+                data = { files: [] };
             if (items && items.length) {
                 $.each(items, function (index, item) {
                     var file = item.getAsFile && item.getAsFile();
@@ -1234,7 +1240,7 @@
                 });
                 if (this._trigger(
                         'paste',
-                        $.Event('paste', {delegatedEvent: e}),
+                        $.Event('paste', { delegatedEvent: e }),
                         data
                     ) !== false) {
                     this._onAdd(e, data);
@@ -1253,7 +1259,7 @@
                     data.files = files;
                     if (that._trigger(
                             'drop',
-                            $.Event('drop', {delegatedEvent: e}),
+                            $.Event('drop', { delegatedEvent: e }),
                             data
                         ) !== false) {
                         that._onAdd(e, data);
@@ -1338,15 +1344,19 @@
         _initDataAttributes: function () {
             var that = this,
                 options = this.options,
-                clone = $(this.element[0].cloneNode(false));
+                data = this.element.data();
             // Initialize options set via HTML5 data-attributes:
             $.each(
-                clone.data(),
-                function (key, value) {
-                    var dataAttributeName = 'data-' +
-                        // Convert camelCase to hyphen-ated key:
-                        key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-                    if (clone.attr(dataAttributeName)) {
+                this.element[0].attributes,
+                function (index, attr) {
+                    var key = attr.name.toLowerCase(),
+                        value;
+                    if (/^data-/.test(key)) {
+                        // Convert hyphen-ated key to camelCase:
+                        key = key.slice(5).replace(/-[a-z]/g, function (str) {
+                            return str.charAt(1).toUpperCase();
+                        });
+                        value = data[key];
                         if (that._isRegExpOption(key, value)) {
                             value = that._getRegExp(value);
                         }

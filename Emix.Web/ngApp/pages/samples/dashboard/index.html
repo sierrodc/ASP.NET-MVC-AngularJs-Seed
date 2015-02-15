@@ -25,7 +25,7 @@
     <h4>Date control from ngStrap</h4>
     <div class="row">
         <div class="col-md-3">
-            <input type="text" class="form-control" ng-model="selectedDate" data-date-type="number" data-min-date="today" data-autoclose="1" bs-datepicker>
+            <input type="text" class="form-control" ng-model="selectedDate" data-date-type="number" data-min-date="today" data-autoclose="false" data-trigger="click" bs-datepicker>
             <span>{{selectedDate | date:'fullDate'}}</span>
         </div>
     </div>

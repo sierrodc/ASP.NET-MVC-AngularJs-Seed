@@ -82,7 +82,7 @@
         "NProgress": false, //NProgress global object
         "angular": false, //angular global object
         "toastr": false,
-        "Morris": false,
+        "Morris": false, 
         "_":  false
     }
 }

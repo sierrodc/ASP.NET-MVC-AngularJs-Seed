@@ -23,23 +23,23 @@
             $routeProvider
                 .when('/dashboard', {
                     controller: 'dashboard_index',
-                    templateUrl: 'ngApp/pages/dashboard/index.html'
+                    templateUrl: 'ngApp/pages/samples/dashboard/index.html'
                 })
                 .when('/charts/morris', {
                     controller: 'section_index',
-                    templateUrl: 'ngApp/pages/section/index.html'
+                    templateUrl: 'ngApp/pages/samples/section/index.html'
                 })
                 .when('/fileupload', {
                     controller: 'fileupload_index',
-                    templateUrl: 'ngApp/pages/fileupload/index.html'
+                    templateUrl: 'ngApp/pages/samples/fileupload/index.html'
                 })
                 .when('/blank', {
                     controller: 'blank_index',
-                    templateUrl: 'ngApp/pages/blank/index.html'
+                    templateUrl: 'ngApp/pages/samples/blank/index.html'
                 })
                 .when('/fullcalendar', {
                     controller: 'fullcalendar_index',
-                    templateUrl: 'ngApp/pages/fullcalendar/index.html'
+                    templateUrl: 'ngApp/pages/samples/fullcalendar/index.html'
                 })
                 .otherwise({
                     redirectTo: '/dashboard'
