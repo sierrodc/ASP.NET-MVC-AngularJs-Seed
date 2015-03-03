@@ -45,6 +45,7 @@
                     redirectTo: '/dashboard'
                 });
 
+            
         }])
         .config(['$translateProvider', function ($translateProvider) {
 

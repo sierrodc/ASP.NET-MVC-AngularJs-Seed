@@ -1,4 +1,12 @@
-﻿.fileinput-button {
+﻿@media (max-width: 474px) {
+  .hidden-xxs {
+    display: none !important;
+  }
+}
+body {
+  min-width: 300px;
+}
+.fileinput-button {
   position: relative;
   overflow: hidden;
 }
@@ -42,33 +50,24 @@
     transform: translateX(10%);
   }
 }
-body {
-  overflow-x: hidden;
-}
-.pageContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-}
-.pageContainer .page {
+/*.pageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: black;*/
+.page {
   -webkit-transition: all linear 0.5s;
   -moz-transition: all linear 0.5s;
   -o-transition: all linear 0.5s;
   transition: all linear 0.5s;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
-.pageContainer .page.ng-enter.ng-enter-active {
-  -webkit-animation: moveFromRight .6s ease both;
-  -moz-animation: moveFromRight .6s ease both;
-  -o-animation: moveFromRight .6s ease both;
-  animation: moveFromRight .6s ease both;
+.page.ng-enter.ng-enter-active {
+  -webkit-animation: moveFromRight 0.6s ease both;
+  -moz-animation: moveFromRight 0.6s ease both;
+  -o-animation: moveFromRight 0.6s ease both;
+  animation: moveFromRight 0.6s ease both;
 }
-.pageContainer .page.ng-leave {
+.page.ng-leave {
   display: none;
   /*&.ng-leave-active {
                 -webkit-animation: scaleDown .2s ease both;
@@ -77,6 +76,7 @@ body {
                 animation: scaleDown .2s ease both;
             }*/
 }
+/*}*/
 .loader {
   position: fixed;
   height: 100%;

@@ -53,27 +53,31 @@
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="Common.Logging, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+    <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Common.Logging.2.3.1\lib\net40\Common.Logging.dll</HintPath>
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Common.Logging.NLog31, Version=2.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.NLog31, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Common.Logging.NLog31.2.3.1\lib\net40\Common.Logging.NLog31.dll</HintPath>
+      <HintPath>..\packages\Common.Logging.NLog31.3.0.0\lib\net40\Common.Logging.NLog31.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=3.2.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -84,41 +88,41 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -134,8 +138,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\AdminLte\AdminLte.css">
-      <DependentUpon>AdminLte.less</DependentUpon>
+    <Content Include="Content\AdminLte-2.0.2\AdminLTE.css">
+      <DependentUpon>AdminLTE.less</DependentUpon>
+    </Content>
+    <Content Include="Content\AdminLte-2.0.2\skins\skin-blue.css">
+      <DependentUpon>skin-blue.less</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-additions\bootstrap-additions.css" />
     <Content Include="Content\bootstrap\bootstrap-3.3.2.css">
@@ -700,7 +707,7 @@
       <DependentUpon>transitions.less</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="ngApp\directives\ngToggleAsideLte.js" />
+    <Content Include="ngApp\directives\ngLteLayout.js" />
     <Content Include="ngApp\directives\ngMorrisCharts.js" />
     <Content Include="ngApp\emixApp.js" />
     <Content Include="ngApp\pages\appAsideLte.js" />
@@ -833,38 +840,49 @@
     <Content Include="Content\fonts\ionicons.eot" />
     <Content Include="Content\fonts\ionicons.ttf" />
     <Content Include="Content\fonts\ionicons.woff" />
-    <Content Include="Content\AdminLte\404_500_errors.less" />
-    <Content Include="Content\AdminLte\AdminLte.less" />
-    <Content Include="Content\AdminLte\alerts.less" />
-    <Content Include="Content\AdminLte\bootstrap-social.less" />
-    <Content Include="Content\AdminLte\boxes.less" />
-    <Content Include="Content\AdminLte\buttons.less" />
-    <Content Include="Content\AdminLte\callout.less" />
-    <Content Include="Content\AdminLte\core.less" />
-    <Content Include="Content\AdminLte\dropdown.less" />
-    <Content Include="Content\AdminLte\forms.less" />
-    <Content Include="Content\AdminLte\header.less" />
-    <Content Include="Content\AdminLte\iCheck.less" />
-    <Content Include="Content\AdminLte\invoice.less" />
-    <Content Include="Content\AdminLte\lockscreen.less" />
-    <Content Include="Content\AdminLte\login_and_register.less" />
-    <Content Include="Content\AdminLte\mailbox.less" />
-    <Content Include="Content\AdminLte\mixins.less" />
-    <Content Include="Content\AdminLte\navs.less" />
-    <Content Include="Content\AdminLte\pace.less" />
-    <Content Include="Content\AdminLte\progress-bars.less" />
-    <Content Include="Content\AdminLte\sidebar.less" />
-    <Content Include="Content\AdminLte\skins.less" />
-    <Content Include="Content\AdminLte\small-box.less" />
-    <Content Include="Content\AdminLte\timeline.less" />
-    <Content Include="Content\AdminLte\vars.less" />
     <Content Include="Content\bootstrap\.csscomb.json" />
     <Content Include="Content\bootstrap\.csslintrc" />
     <Content Include="Content\fontawesome\animated.less" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="Content\AdminLte-2.0.2\404_500_errors.less" />
+    <Content Include="Content\AdminLte-2.0.2\AdminLTE.less" />
+    <Content Include="Content\AdminLte-2.0.2\alerts.less" />
+    <Content Include="Content\AdminLte-2.0.2\bootstrap-social.less" />
+    <Content Include="Content\AdminLte-2.0.2\boxes.less" />
+    <Content Include="Content\AdminLte-2.0.2\buttons.less" />
+    <Content Include="Content\AdminLte-2.0.2\callout.less" />
+    <Content Include="Content\AdminLte-2.0.2\carousel.less" />
+    <Content Include="Content\AdminLte-2.0.2\core.less" />
+    <Content Include="Content\AdminLte-2.0.2\direct-chat.less" />
+    <Content Include="Content\AdminLte-2.0.2\dropdown.less" />
+    <Content Include="Content\AdminLte-2.0.2\forms.less" />
+    <Content Include="Content\AdminLte-2.0.2\fullcalendar.less" />
+    <Content Include="Content\AdminLte-2.0.2\header.less" />
+    <Content Include="Content\AdminLte-2.0.2\info-box.less" />
+    <Content Include="Content\AdminLte-2.0.2\invoice.less" />
+    <Content Include="Content\AdminLte-2.0.2\labels.less" />
+    <Content Include="Content\AdminLte-2.0.2\lockscreen.less" />
+    <Content Include="Content\AdminLte-2.0.2\login_and_register.less" />
+    <Content Include="Content\AdminLte-2.0.2\mailbox.less" />
+    <Content Include="Content\AdminLte-2.0.2\miscellaneous.less" />
+    <Content Include="Content\AdminLte-2.0.2\mixins.less" />
+    <Content Include="Content\AdminLte-2.0.2\modal.less" />
+    <Content Include="Content\AdminLte-2.0.2\navs.less" />
+    <Content Include="Content\AdminLte-2.0.2\products.less" />
+    <Content Include="Content\AdminLte-2.0.2\progress-bars.less" />
+    <Content Include="Content\AdminLte-2.0.2\sidebar.less" />
+    <Content Include="Content\AdminLte-2.0.2\small-box.less" />
+    <Content Include="Content\AdminLte-2.0.2\table.less" />
+    <Content Include="Content\AdminLte-2.0.2\timeline.less" />
+    <Content Include="Content\AdminLte-2.0.2\users-list.less" />
+    <Content Include="Content\AdminLte-2.0.2\variables.less" />
+    <Content Include="Content\AdminLte-2.0.2\skins\skin-black.less" />
+    <Content Include="Content\AdminLte-2.0.2\skins\skin-blue.less" />
+    <Content Include="Content\AdminLte-2.0.2\skins\skin-green.less" />
+    <Content Include="Content\AdminLte-2.0.2\skins\skin-purple.less" />
+    <Content Include="Content\AdminLte-2.0.2\skins\skin-red.less" />
+    <Content Include="Content\AdminLte-2.0.2\skins\skin-yellow.less" />
+    <Content Include="Content\AdminLte-2.0.2\skins\_all-skins.less" />
     <Content Include="Scripts\angular-i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_aa-et.js" />
@@ -1614,8 +1632,7 @@
     <Content Include="Scripts\Vendor\Ring0\modernizr-2.8.3.js" />
     <Content Include="Scripts\Vendor\Ring0\moment-with-locales-2.9.0.js" />
     <Content Include="Scripts\Vendor\Ring0\raphael-2.1.2.js" />
-    <Content Include="Scripts\Vendor\Ring1\angularjs\angular-1.4.0.b4.js" />
-    <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular.js" />
+    <Content Include="Scripts\Vendor\Ring1\angularjs\angular-1.4.0.b5.js" />
     <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\languages\lang-all.js" />
     <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar-2.2.7.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery-slimScroll.js" />
@@ -1623,7 +1640,7 @@
     <Content Include="Scripts\Vendor\Ring2\angular-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-strap\angular-strap-2.1.6.js" />
     <Content Include="Scripts\Vendor\Ring2\ui-calendar-0.8.1.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular-1.4.0.b4.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular-1.4.0.b5.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\languages\lang-all.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar-2.2.7.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery-slimScroll.js" />
@@ -1712,6 +1729,9 @@
     <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\translate.js" />
     <Content Include="Scripts\Vendor\Ring1\bootstrap.js.excluded" />
     <Content Include="Scripts\Vendor_dev\Ring1\bootstrap.js.excluded" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\ui-calendar-0.8.1.js" />
     <Content Include="Web.config" />

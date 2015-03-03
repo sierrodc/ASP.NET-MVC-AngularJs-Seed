@@ -53,7 +53,8 @@ namespace Emix.Web
                 .Include("~/Content/nProgress.css")
                 .Include("~/Content/fullcalendar.css")
                 .Include("~/Content/transitions.css")
-                .Include("~/Content/AdminLte/AdminLte.css")
+                .Include("~/Content/AdminLte-2.0.2/AdminLte.css")
+                .Include("~/Content/AdminLte-2.0.2/skins/skin-blue.css")
                 .Include("~/Content/site.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
