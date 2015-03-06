@@ -17,23 +17,23 @@ Server side
  - Autofac 3.5.2 (http://autofac.org/)
 
 Client side
- - AngularJS 1.3.8 (https://angularjs.org/)
- - Angular-Strap 2.1.4 (http://mgcrea.github.io/angular-strap/)
+ - AngularJS 1.4.0_beta5 (https://angularjs.org/)
+ - Angular-Strap 2.1.6 (http://mgcrea.github.io/angular-strap/)
  - UI boostrap 0.12.0 (http://angular-ui.github.io/bootstrap/)
  - morrisjs 0.5.1 (http://morrisjs.github.io/morris.js/)
 
 Js utilitiles
  - JQuery 2.1.4 (http://jquery.com/)
- - MomentJs 2.8.4 (http://momentjs.com/)
- - Lo-Dash 2.4.1 (https://lodash.com/)
+ - MomentJs 2.9.0 (http://momentjs.com/)
+ - Lo-Dash 3.2.0 (https://lodash.com/)
  - Toastr 2.1.0 (http://codeseven.github.io/toastr/)
  - nProgress 0.1.6 (http://ricostacruz.com/nprogress/)
  - pascalprecht.translate 2.4.2 (https://github.com/angular-translate/angular-translate)
 
 View
- - Bootstrap Twitter 3.3.0 (http://getbootstrap.com/)
+ - Bootstrap Twitter 3.3.2 (http://getbootstrap.com/)
  - FontAwesome 4.2.0 (http://fortawesome.github.io/Font-Awesome/)
- - AdminLTE (http://almsaeedstudio.com/AdminLTE/)
+ - AdminLTE v2.0.2 (http://almsaeedstudio.com/AdminLTE/)
 
 Next:
  - Authentication?
