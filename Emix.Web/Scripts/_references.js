@@ -107,3 +107,4 @@
 /// <reference path="vendor/ring1/angularjs/angular-1.4.0.b5.js" />
 /// <reference path="vendor_dev/ring1/angularjs/angular-1.4.0.b5.js" />
 /// <reference path="../ngapp/directives/ngltelayout.js" />
+/// <reference path="vendor/ring1/jquery.ui.widget.js" />

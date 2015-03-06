@@ -1636,6 +1636,7 @@
     <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\languages\lang-all.js" />
     <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar-2.2.7.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery-slimScroll.js" />
+    <Content Include="Scripts\Vendor\Ring1\jquery.ui.widget.js" />
     <Content Include="Scripts\Vendor\Ring1\morris-0.5.1.js" />
     <Content Include="Scripts\Vendor\Ring2\angular-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-strap\angular-strap-2.1.6.js" />
@@ -1729,6 +1730,7 @@
     <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\translate.js" />
     <Content Include="Scripts\Vendor\Ring1\bootstrap.js.excluded" />
     <Content Include="Scripts\Vendor_dev\Ring1\bootstrap.js.excluded" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

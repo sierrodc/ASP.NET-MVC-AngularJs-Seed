@@ -31,7 +31,7 @@ namespace Emix.Web
                 );
 
 
-            bundles.Add(new StyleBundle("~/Content/css")
+            bundles.Add(new StyleBundle("~/Content/Styles/css")
                 .Include("~/Content/bootstrap/bootstrap-3.3.2.css")
                 .Include("~/Content/bootstrap-additions/bootstrap-additions.css")
                 .Include("~/Content/fontawesome/font-awesome-4.3.0.css")
@@ -42,7 +42,7 @@ namespace Emix.Web
                 .Include("~/Content/transitions.css")
                 .Include("~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/Content/Ltecss")
+            bundles.Add(new StyleBundle("~/Content/Styles/Ltecss")
                 .Include("~/Content/bootstrap/bootstrap-3.3.2.css")
                 .Include("~/Content/bootstrap-additions/bootstrap-additions.css")
                 .Include("~/Content/fontawesome/font-awesome-4.3.0.css")
@@ -56,10 +56,6 @@ namespace Emix.Web
                 .Include("~/Content/AdminLte-2.0.2/AdminLte.css")
                 .Include("~/Content/AdminLte-2.0.2/skins/skin-blue.css")
                 .Include("~/Content/site.css"));
-
-            // Set EnableOptimizations to false for debugging. For more information,
-            // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = false;
         }
     }
 }
