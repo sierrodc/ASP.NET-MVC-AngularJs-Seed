@@ -1628,7 +1628,7 @@
     <Content Include="Scripts\angular-i18n\angular-locale_zu.js" />
     <Content Include="Scripts\Custom\blockui.js" />
     <Content Include="Scripts\Vendor\Ring0\jquery-2.1.3.js" />
-    <Content Include="Scripts\Vendor\Ring0\lodash-3.2.0.js" />
+    <Content Include="Scripts\Vendor\Ring0\lodash-3.5.0.js" />
     <Content Include="Scripts\Vendor\Ring0\modernizr-2.8.3.js" />
     <Content Include="Scripts\Vendor\Ring0\moment-with-locales-2.9.0.js" />
     <Content Include="Scripts\Vendor\Ring0\raphael-2.1.2.js" />
@@ -1641,6 +1641,7 @@
     <Content Include="Scripts\Vendor\Ring2\angular-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-strap\angular-strap-2.1.6.js" />
     <Content Include="Scripts\Vendor\Ring2\ui-calendar-0.8.1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\lodash-3.5.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular-1.4.0.b5.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\languages\lang-all.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar-2.2.7.js" />
@@ -1679,7 +1680,6 @@
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\translationCache.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-translate\translate.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\jquery-2.1.3.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\lodash-3.2.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\modernizr-2.8.3.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales-2.9.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\raphael-2.1.2.js" />
