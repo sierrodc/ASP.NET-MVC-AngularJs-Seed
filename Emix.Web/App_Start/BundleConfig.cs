@@ -32,9 +32,9 @@ namespace Emix.Web
 
 
             bundles.Add(new StyleBundle("~/Content/Styles/css")
-                .Include("~/Content/bootstrap/bootstrap-3.3.2.css")
+                .Include("~/Content/bootstrap/bootstrap-3.3.5.css")
                 .Include("~/Content/bootstrap-additions/bootstrap-additions.css")
-                .Include("~/Content/fontawesome/font-awesome-4.3.0.css")
+                .Include("~/Content/fontawesome/font-awesome-4.4.0.css")
                 .Include("~/Content/flag-icon/flag-icon.css")
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/morris.core.css")
@@ -43,9 +43,9 @@ namespace Emix.Web
                 .Include("~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Styles/Ltecss")
-                .Include("~/Content/bootstrap/bootstrap-3.3.2.css")
+                .Include("~/Content/bootstrap/bootstrap-3.3.5.css")
                 .Include("~/Content/bootstrap-additions/bootstrap-additions.css")
-                .Include("~/Content/fontawesome/font-awesome-4.3.0.css")
+                .Include("~/Content/fontawesome/font-awesome-4.4.0.css")
                 .Include("~/Content/flag-icon/flag-icon.css")
                 .Include("~/Content/ionicons/ionicons.css")
                 .Include("~/Content/toastr.css")

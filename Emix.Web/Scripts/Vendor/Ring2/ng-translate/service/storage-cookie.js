@@ -10,7 +10,11 @@ angular.module('pascalprecht.translate')
  * to use cookieStore as storage.
  *
  */
-.factory('$translateCookieStorage', ['$cookieStore', function ($cookieStore) {
+  .factory('$translateCookieStorage', $translateCookieStorageFactory);
+
+function $translateCookieStorageFactory($cookieStore) {
+
+  'use strict';
 
   var $translateCookieStorage = {
 
@@ -37,13 +41,32 @@ angular.module('pascalprecht.translate')
      * @description
      * Sets an item in cookieStorage by given name.
      *
+     * @deprecated use #put
+     *
      * @param {string} name Item name
      * @param {string} value Item value
      */
     set: function (name, value) {
       $cookieStore.put(name, value);
+    },
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translateCookieStorage#put
+     * @methodOf pascalprecht.translate.$translateCookieStorage
+     *
+     * @description
+     * Sets an item in cookieStorage by given name.
+     *
+     * @param {string} name Item name
+     * @param {string} value Item value
+     */
+    put: function (name, value) {
+      $cookieStore.put(name, value);
     }
   };
 
   return $translateCookieStorage;
-}]);
+}
+
+$translateCookieStorageFactory.displayName = '$translateCookieStorage';

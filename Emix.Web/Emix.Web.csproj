@@ -47,31 +47,33 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Autofac.Integration.Mvc">
-      <HintPath>..\packages\Autofac.Mvc5.3.3.3\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="Common.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Common.Logging.Core">
-      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Common.Logging.NLog31, Version=3.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Common.Logging.NLog31.3.0.0\lib\net40\Common.Logging.NLog31.dll</HintPath>
+    <Reference Include="Common.Logging.NLog31, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.NLog31.3.3.1\lib\net40\Common.Logging.NLog31.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="NLog, Version=3.2.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.2.0\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
@@ -145,8 +147,8 @@
       <DependentUpon>skin-blue.less</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-additions\bootstrap-additions.css" />
-    <Content Include="Content\bootstrap\bootstrap-3.3.2.css">
-      <DependentUpon>bootstrap-3.3.2.less</DependentUpon>
+    <Content Include="Content\bootstrap\bootstrap-3.3.5.css">
+      <DependentUpon>bootstrap-3.3.5.less</DependentUpon>
     </Content>
     <Content Include="Content\flag-icon\flag-icon.css">
       <DependentUpon>flag-icon.less</DependentUpon>
@@ -652,8 +654,8 @@
     <Content Include="Content\flags\4x3\za.svg" />
     <Content Include="Content\flags\4x3\zm.svg" />
     <Content Include="Content\flags\4x3\zw.svg" />
-    <Content Include="Content\fontawesome\font-awesome-4.3.0.css">
-      <DependentUpon>font-awesome-4.3.0.less</DependentUpon>
+    <Content Include="Content\fontawesome\font-awesome-4.4.0.css">
+      <DependentUpon>font-awesome-4.4.0.less</DependentUpon>
     </Content>
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -794,7 +796,6 @@
     <Content Include="Content\bootstrap\buttons.less" />
     <Content Include="Content\bootstrap\button-groups.less" />
     <Content Include="Content\bootstrap\breadcrumbs.less" />
-    <Content Include="Content\bootstrap\bootstrap-3.3.2.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\toastr.less" />
@@ -811,7 +812,6 @@
     <Content Include="Content\fontawesome\list.less" />
     <Content Include="Content\fontawesome\larger.less" />
     <Content Include="Content\fontawesome\icons.less" />
-    <Content Include="Content\fontawesome\font-awesome-4.3.0.less" />
     <Content Include="Content\fontawesome\fixed-width.less" />
     <Content Include="Content\fontawesome\extras.less" />
     <Content Include="Content\fontawesome\core.less" />
@@ -840,8 +840,6 @@
     <Content Include="Content\fonts\ionicons.eot" />
     <Content Include="Content\fonts\ionicons.ttf" />
     <Content Include="Content\fonts\ionicons.woff" />
-    <Content Include="Content\bootstrap\.csscomb.json" />
-    <Content Include="Content\bootstrap\.csslintrc" />
     <Content Include="Content\fontawesome\animated.less" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\AdminLte-2.0.2\404_500_errors.less" />
@@ -1524,6 +1522,7 @@
     <Content Include="Scripts\angular-i18n\angular-locale_sv-fi.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_sv-se.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_sv.js" />
+    <Content Include="Scripts\angular-i18n\angular-locale_sw-cd.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_sw-ke.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_sw-tz.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_sw-ug.js" />
@@ -1627,33 +1626,38 @@
     <Content Include="Scripts\angular-i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_zu.js" />
     <Content Include="Scripts\Custom\blockui.js" />
-    <Content Include="Scripts\Vendor\Ring0\jquery-2.1.3.js" />
-    <Content Include="Scripts\Vendor\Ring0\lodash-3.5.0.js" />
-    <Content Include="Scripts\Vendor\Ring0\modernizr-2.8.3.js" />
-    <Content Include="Scripts\Vendor\Ring0\moment-with-locales-2.9.0.js" />
+    <Content Include="Scripts\Vendor\Ring0\jquery-2.1.4.js" />
+    <Content Include="Scripts\Vendor\Ring0\lodash-3.10.1.js" />
+    <Content Include="Scripts\Vendor\Ring0\moment-with-locales-2.10.6.js" />
     <Content Include="Scripts\Vendor\Ring0\raphael-2.1.2.js" />
-    <Content Include="Scripts\Vendor\Ring1\angularjs\angular-1.4.0.b5.js" />
+    <Content Include="Scripts\Vendor\Ring1\angularjs\angular-1.5.0.b1.js" />
+    <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular-message-format.js" />
     <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\languages\lang-all.js" />
-    <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar-2.2.7.js" />
+    <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar-2.4.0.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.ui.widget.js" />
     <Content Include="Scripts\Vendor\Ring1\morris-0.5.1.js" />
     <Content Include="Scripts\Vendor\Ring2\angular-slimScroll.js" />
-    <Content Include="Scripts\Vendor\Ring2\ng-strap\angular-strap-2.1.6.js" />
-    <Content Include="Scripts\Vendor\Ring2\ui-calendar-0.8.1.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\lodash-3.5.0.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular-1.4.0.b5.js" />
+    <Content Include="Scripts\Vendor\Ring2\ng-strap\angular-strap-2.3.6.js" />
+    <Content Include="Scripts\Vendor\Ring2\ng-translate\directive\translate-namespace.js" />
+    <Content Include="Scripts\Vendor\Ring2\ng-translate\service\sanitization.js" />
+    <Content Include="Scripts\Vendor\Ring2\ng-translate\translate-2.8.1.js" />
+    <Content Include="Scripts\Vendor\Ring2\ui-bootstrap-tpls-0.14.3.js" />
+    <Content Include="Scripts\Vendor\Ring2\ui-calendar-1.0.1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\jquery-2.1.4.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\lodash-3.10.1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular-1.5.0.b1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\modules\angular-message-format.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\languages\lang-all.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar-2.2.7.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar-2.4.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\jquery.fileupload.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-process.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-validate.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.iframe-transport.js" />
-    <Content Include="Scripts\Vendor\Ring2\ui-bootstrap-tpls-0.12.0.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-fileupload\jquery.fileupload-angular.js" />
-    <Content Include="Scripts\Vendor\Ring1\nProgress-0.1.6.js" />
-    <Content Include="Scripts\Vendor\Ring1\toastr-2.1.0.js" />
+    <Content Include="Scripts\Vendor\Ring1\nProgress-0.2.0.js" />
+    <Content Include="Scripts\Vendor\Ring1\toastr-2.1.2.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-strap\modules\angular-strap.tpl.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular-animate.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular-aria.js" />
@@ -1678,19 +1682,17 @@
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\storage-local.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\translate.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\translationCache.js" />
-    <Content Include="Scripts\Vendor\Ring2\ng-translate\translate.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\jquery-2.1.3.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\modernizr-2.8.3.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales-2.9.0.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales-2.10.6.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\raphael-2.1.2.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery.ui.widget.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery.fileupload\jquery.fileupload.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\morris-0.5.1.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\nProgress-0.1.6.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\toastr-2.1.0.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\nProgress-0.2.0.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\toastr-2.1.2.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\angular-slimScroll.js" />
-    <Content Include="Scripts\Vendor_dev\Ring2\ng-strap\angular-strap-2.1.6.js" />
-    <Content Include="Scripts\Vendor_dev\Ring2\ui-bootstrap-tpls-0.12.0.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\ng-strap\angular-strap-2.3.6.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\directive\translate-namespace.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\ng-translate\service\sanitization.js" />
     <Content Include="Scripts\Vendor_dev\Ring2\ng-strap\modules\angular-strap.tpl.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angularjs\modules\angular-animate.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angularjs\modules\angular-aria.js" />
@@ -1731,11 +1733,15 @@
     <Content Include="Scripts\Vendor\Ring1\bootstrap.js.excluded" />
     <Content Include="Scripts\Vendor_dev\Ring1\bootstrap.js.excluded" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap\bootstrap-3.3.5.less" />
+    <Content Include="Content\bootstrap\mixins\reset-text.less" />
+    <Content Include="Content\fontawesome\font-awesome-4.4.0.less" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\_references.js" />
-    <Content Include="Scripts\Vendor_dev\Ring2\ui-calendar-0.8.1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\ui-bootstrap-tpls-0.14.3.js" />
+    <Content Include="Scripts\Vendor_dev\Ring2\ui-calendar-1.0.1.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

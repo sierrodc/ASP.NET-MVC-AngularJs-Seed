@@ -16,6 +16,15 @@ $provide.value("$locale", {
       "\u0436\u0443\u043c\u0430",
       "\u0438\u0448\u0435\u043c\u0431\u0438"
     ],
+    "ERANAMES": [
+      "\u0431\u0438\u0437\u0434\u0438\u043d \u0437\u0430\u043c\u0430\u043d\u0433\u0430 \u0447\u0435\u0439\u0438\u043d",
+      "\u0431\u0438\u0437\u0434\u0438\u043d \u0437\u0430\u043c\u0430\u043d"
+    ],
+    "ERAS": [
+      "\u0431.\u0437.\u0447.",
+      "\u0431.\u0437."
+    ],
+    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "\u044f\u043d\u0432\u0430\u0440\u044c",
       "\u0444\u0435\u0432\u0440\u0430\u043b\u044c",
@@ -53,6 +62,10 @@ $provide.value("$locale", {
       "\u043d\u043e\u044f.",
       "\u0434\u0435\u043a."
     ],
+    "WEEKENDRANGE": [
+      5,
+      6
+    ],
     "fullDate": "EEEE, d-MMMM, y-'\u0436'.",
     "longDate": "y MMMM d",
     "medium": "y MMM d HH:mm:ss",
@@ -63,7 +76,7 @@ $provide.value("$locale", {
     "shortTime": "HH:mm"
   },
   "NUMBER_FORMATS": {
-    "CURRENCY_SYM": "\u20ac",
+    "CURRENCY_SYM": "KGS",
     "DECIMAL_SEP": ",",
     "GROUP_SEP": "\u00a0",
     "PATTERNS": [

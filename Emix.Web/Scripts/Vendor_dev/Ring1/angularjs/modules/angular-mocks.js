@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.4.0-beta.5
+ * @license AngularJS v1.5.0-beta.1
  * (c) 2010-2015 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -64,10 +64,9 @@ angular.mock.$Browser = function() {
     return listener;
   };
 
+  self.$$applicationDestroyed = angular.noop;
   self.$$checkUrlChange = angular.noop;
 
-  self.cookieHash = {};
-  self.lastCookieHash = {};
   self.deferredFns = [];
   self.deferredNextId = 0;
 
@@ -95,7 +94,7 @@ angular.mock.$Browser = function() {
       if (fn.id === deferId) fnIndex = index;
     });
 
-    if (fnIndex !== undefined) {
+    if (angular.isDefined(fnIndex)) {
       self.deferredFns.splice(fnIndex, 1);
       return true;
     }
@@ -147,11 +146,6 @@ angular.mock.$Browser.prototype = {
     });
   },
 
-  addPollFn: function(pollFn) {
-    this.pollFns.push(pollFn);
-    return pollFn;
-  },
-
   url: function(url, replace, state) {
     if (angular.isUndefined(state)) {
       state = null;
@@ -168,25 +162,6 @@ angular.mock.$Browser.prototype = {
 
   state: function() {
     return this.$$state;
-  },
-
-  cookies:  function(name, value) {
-    if (name) {
-      if (angular.isUndefined(value)) {
-        delete this.cookieHash[name];
-      } else {
-        if (angular.isString(value) &&       //strings only
-            value.length <= 4096) {          //strict cookie storage limits
-          this.cookieHash[name] = value;
-        }
-      }
-    } else {
-      if (!angular.equals(this.cookieHash, this.lastCookieHash)) {
-        this.lastCookieHash = angular.copy(this.cookieHash);
-        this.cookieHash = angular.copy(this.cookieHash);
-      }
-      return this.cookieHash;
-    }
   },
 
   notifyWhenNoOutstandingRequests: function(fn) {
@@ -458,6 +433,7 @@ angular.mock.$LogProvider = function() {
  *   indefinitely.
  * @param {boolean=} [invokeApply=true] If set to `false` skips model dirty checking, otherwise
  *   will invoke `fn` within the {@link ng.$rootScope.Scope#$apply $apply} block.
+ * @param {...*=} Pass additional parameters to the executed function.
  * @returns {promise} A promise which will be notified on each iteration.
  */
 angular.mock.$IntervalProvider = function() {
@@ -468,13 +444,17 @@ angular.mock.$IntervalProvider = function() {
         now = 0;
 
     var $interval = function(fn, delay, count, invokeApply) {
-      var iteration = 0,
+      var hasParams = arguments.length > 4,
+          args = hasParams ? Array.prototype.slice.call(arguments, 4) : [],
+          iteration = 0,
           skipApply = (angular.isDefined(invokeApply) && !invokeApply),
           deferred = (skipApply ? $$q : $q).defer(),
           promise = deferred.promise;
 
       count = (angular.isDefined(count)) ? count : 0;
-      promise.then(null, null, fn);
+      promise.then(null, null, (!hasParams) ? fn : function() {
+        fn.apply(null, args);
+      });
 
       promise.$$intervalId = nextRepeatId;
 
@@ -489,7 +469,7 @@ angular.mock.$IntervalProvider = function() {
             if (fn.id === promise.$$intervalId) fnIndex = index;
           });
 
-          if (fnIndex !== undefined) {
+          if (angular.isDefined(fnIndex)) {
             repeatFns.splice(fnIndex, 1);
           }
         }
@@ -531,7 +511,7 @@ angular.mock.$IntervalProvider = function() {
         if (fn.id === promise.$$intervalId) fnIndex = index;
       });
 
-      if (fnIndex !== undefined) {
+      if (angular.isDefined(fnIndex)) {
         repeatFns[fnIndex].deferred.reject('canceled');
         repeatFns.splice(fnIndex, 1);
         return true;
@@ -782,36 +762,70 @@ angular.mock.animate = angular.module('ngAnimateMock', ['ng'])
 
   .config(['$provide', function($provide) {
 
-    var reflowQueue = [];
-    $provide.value('$$animateReflow', function(fn) {
-      var index = reflowQueue.length;
-      reflowQueue.push(fn);
-      return function cancel() {
-        reflowQueue.splice(index, 1);
-      };
+    $provide.factory('$$forceReflow', function() {
+      function reflowFn() {
+        reflowFn.totalReflows++;
+      }
+      reflowFn.totalReflows = 0;
+      return reflowFn;
     });
 
-    $provide.decorator('$animate', ['$delegate', '$$asyncCallback', '$timeout', '$browser',
-                            function($delegate,   $$asyncCallback,   $timeout,   $browser) {
+    $provide.factory('$$animateAsyncRun', function() {
+      var queue = [];
+      var queueFn = function() {
+        return function(fn) {
+          queue.push(fn);
+        };
+      };
+      queueFn.flush = function() {
+        if (queue.length === 0) return false;
+
+        for (var i = 0; i < queue.length; i++) {
+          queue[i]();
+        }
+        queue = [];
+
+        return true;
+      };
+      return queueFn;
+    });
+
+    $provide.decorator('$animate', ['$delegate', '$timeout', '$browser', '$$rAF',
+                                    '$$forceReflow', '$$animateAsyncRun', '$rootScope',
+                            function($delegate,   $timeout,   $browser,   $$rAF,
+                                     $$forceReflow,   $$animateAsyncRun,  $rootScope) {
       var animate = {
         queue: [],
         cancel: $delegate.cancel,
+        on: $delegate.on,
+        off: $delegate.off,
+        pin: $delegate.pin,
+        get reflows() {
+          return $$forceReflow.totalReflows;
+        },
         enabled: $delegate.enabled,
-        triggerCallbackEvents: function() {
-          $$asyncCallback.flush();
-        },
-        triggerCallbackPromise: function() {
-          $timeout.flush(0);
-        },
-        triggerCallbacks: function() {
-          this.triggerCallbackEvents();
-          this.triggerCallbackPromise();
-        },
-        triggerReflow: function() {
-          angular.forEach(reflowQueue, function(fn) {
-            fn();
-          });
-          reflowQueue = [];
+        flush: function() {
+          $rootScope.$digest();
+
+          var doNextRun, somethingFlushed = false;
+          do {
+            doNextRun = false;
+
+            if ($$rAF.queue.length) {
+              $$rAF.flush();
+              doNextRun = somethingFlushed = true;
+            }
+
+            if ($$animateAsyncRun.flush()) {
+              doNextRun = somethingFlushed = true;
+            }
+          } while (doNextRun);
+
+          if (!somethingFlushed) {
+            throw new Error('No pending animations ready to be closed or flushed');
+          }
+
+          $rootScope.$digest();
         }
       };
 
@@ -1028,7 +1042,7 @@ angular.mock.dump = function(object) {
       $http.post('/add-msg.py', message, { headers: headers } ).success(function(response) {
         $scope.status = '';
       }).error(function() {
-        $scope.status = 'ERROR!';
+        $scope.status = 'Failed...';
       });
     };
   }
@@ -1109,7 +1123,7 @@ angular.mock.dump = function(object) {
          $httpBackend.flush();
 
          $httpBackend.expectPOST('/add-msg.py', undefined, function(headers) {
-           // check if the header was send, if it wasn't the expectation won't
+           // check if the header was sent, if it wasn't the expectation won't
            // match the request and the test will fail
            return headers['Authorization'] == 'xxx';
          }).respond(201, '');
@@ -1763,45 +1777,31 @@ angular.mock.$TimeoutDecorator = ['$delegate', '$browser', function($delegate, $
 }];
 
 angular.mock.$RAFDecorator = ['$delegate', function($delegate) {
-  var queue = [];
   var rafFn = function(fn) {
-    var index = queue.length;
-    queue.push(fn);
+    var index = rafFn.queue.length;
+    rafFn.queue.push(fn);
     return function() {
-      queue.splice(index, 1);
+      rafFn.queue.splice(index, 1);
     };
   };
 
+  rafFn.queue = [];
   rafFn.supported = $delegate.supported;
 
   rafFn.flush = function() {
-    if (queue.length === 0) {
+    if (rafFn.queue.length === 0) {
       throw new Error('No rAF callbacks present');
     }
 
-    var length = queue.length;
+    var length = rafFn.queue.length;
     for (var i = 0; i < length; i++) {
-      queue[i]();
+      rafFn.queue[i]();
     }
 
-    queue = [];
+    rafFn.queue = rafFn.queue.slice(i);
   };
 
   return rafFn;
-}];
-
-angular.mock.$AsyncCallbackDecorator = ['$delegate', function($delegate) {
-  var callbacks = [];
-  var addFn = function(fn) {
-    callbacks.push(fn);
-  };
-  addFn.flush = function() {
-    angular.forEach(callbacks, function(fn) {
-      fn();
-    });
-    callbacks = [];
-  };
-  return addFn;
 }];
 
 /**
@@ -1812,6 +1812,77 @@ angular.mock.$RootElementProvider = function() {
     return angular.element('<div ng-app></div>');
   };
 };
+
+/**
+ * @ngdoc service
+ * @name $controller
+ * @description
+ * A decorator for {@link ng.$controller} with additional `bindings` parameter, useful when testing
+ * controllers of directives that use {@link $compile#-bindtocontroller- `bindToController`}.
+ *
+ *
+ * ## Example
+ *
+ * ```js
+ *
+ * // Directive definition ...
+ *
+ * myMod.directive('myDirective', {
+ *   controller: 'MyDirectiveController',
+ *   bindToController: {
+ *     name: '@'
+ *   }
+ * });
+ *
+ *
+ * // Controller definition ...
+ *
+ * myMod.controller('MyDirectiveController', ['log', function($log) {
+ *   $log.info(this.name);
+ * })];
+ *
+ *
+ * // In a test ...
+ *
+ * describe('myDirectiveController', function() {
+ *   it('should write the bound name to the log', inject(function($controller, $log) {
+ *     var ctrl = $controller('MyDirectiveController', { /* no locals &#42;/ }, { name: 'Clark Kent' });
+ *     expect(ctrl.name).toEqual('Clark Kent');
+ *     expect($log.info.logs).toEqual(['Clark Kent']);
+ *   });
+ * });
+ *
+ * ```
+ *
+ * @param {Function|string} constructor If called with a function then it's considered to be the
+ *    controller constructor function. Otherwise it's considered to be a string which is used
+ *    to retrieve the controller constructor using the following steps:
+ *
+ *    * check if a controller with given name is registered via `$controllerProvider`
+ *    * check if evaluating the string on the current scope returns a constructor
+ *    * if $controllerProvider#allowGlobals, check `window[constructor]` on the global
+ *      `window` object (not recommended)
+ *
+ *    The string can use the `controller as property` syntax, where the controller instance is published
+ *    as the specified property on the `scope`; the `scope` must be injected into `locals` param for this
+ *    to work correctly.
+ *
+ * @param {Object} locals Injection locals for Controller.
+ * @param {Object=} bindings Properties to add to the controller before invoking the constructor. This is used
+ *                           to simulate the `bindToController` feature and simplify certain kinds of tests.
+ * @return {Object} Instance of given controller.
+ */
+angular.mock.$ControllerDecorator = ['$delegate', function($delegate) {
+  return function(expression, locals, later, ident) {
+    if (later && typeof later === 'object') {
+      var create = $delegate(expression, locals, true, ident);
+      angular.extend(create.instance, later);
+      return create();
+    }
+    return $delegate(expression, locals, later, ident);
+  };
+}];
+
 
 /**
  * @ngdoc module
@@ -1839,8 +1910,8 @@ angular.module('ngMock', ['ng']).provider({
 }).config(['$provide', function($provide) {
   $provide.decorator('$timeout', angular.mock.$TimeoutDecorator);
   $provide.decorator('$$rAF', angular.mock.$RAFDecorator);
-  $provide.decorator('$$asyncCallback', angular.mock.$AsyncCallbackDecorator);
   $provide.decorator('$rootScope', angular.mock.$RootScopeDecorator);
+  $provide.decorator('$controller', angular.mock.$ControllerDecorator);
 }]);
 
 /**
@@ -2176,7 +2247,6 @@ if (window.jasmine || window.mocha) {
 
     if (injector) {
       injector.get('$rootElement').off();
-      injector.get('$browser').pollFns.length = 0;
     }
 
     // clean up jquery's fragment cache

@@ -33,6 +33,7 @@
 @red: #BD362F;
 @blue: #2F96B4;
 @orange: #F89406;
+@default-container-opacity: .8;
 
 // Styles
 .toast-title {
@@ -87,6 +88,18 @@ button.toast-close-button {
 
 //#endregion
 
+.toast-top-center {
+	top: 0;
+	right: 0;
+	width: 100%;
+}
+
+.toast-bottom-center {
+	bottom: 0;
+	right: 0;
+	width: 100%;
+}
+
 .toast-top-full-width {
 	top: 0;
 	right: 0;
@@ -122,7 +135,8 @@ button.toast-close-button {
 #toast-container {
 	position: fixed;
 	z-index: 999999;
-
+	// The container should not be clickable.
+	pointer-events: none;
 	* {
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
@@ -130,6 +144,10 @@ button.toast-close-button {
 	}
 
 	> div {
+		position: relative;
+		// The toast itself should be clickable.
+		pointer-events: auto;
+		overflow: hidden;
 		margin: 0 0 6px;
 		padding: 15px 15px 15px 50px;
 		width: 300px;
@@ -138,7 +156,7 @@ button.toast-close-button {
 		background-repeat: no-repeat;
 		.boxShadow(0 0 12px @grey);
 		color: @white;
-		.opacity(0.8);
+		.opacity(@default-container-opacity);
 	}
 
 	> :hover {
@@ -164,10 +182,18 @@ button.toast-close-button {
 	}
 
 	/*overrides*/
+	&.toast-top-center > div,
+	&.toast-bottom-center > div {
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	&.toast-top-full-width > div,
 	&.toast-bottom-full-width > div {
 		width: 96%;
-		margin: auto;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
@@ -189,6 +215,15 @@ button.toast-close-button {
 
 .toast-warning {
 	background-color: @orange;
+}
+
+.toast-progress {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 4px;
+	background-color: @black;
+	.opacity(0.4);
 }
 
 /*Responsive Design*/

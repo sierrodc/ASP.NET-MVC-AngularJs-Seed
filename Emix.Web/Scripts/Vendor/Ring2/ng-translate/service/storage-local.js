@@ -4,13 +4,18 @@ angular.module('pascalprecht.translate')
  * @ngdoc object
  * @name pascalprecht.translate.$translateLocalStorage
  * @requires $window
+ * @requires $translateCookieStorage
  *
  * @description
  * Abstraction layer for localStorage. This service is used when telling angular-translate
  * to use localStorage as storage.
  *
  */
-.factory('$translateLocalStorage', ['$window', '$translateCookieStorage', function ($window, $translateCookieStorage) {
+.factory('$translateLocalStorage', $translateLocalStorageFactory);
+
+function $translateLocalStorageFactory($window, $translateCookieStorage) {
+
+  'use strict';
 
   // Setup adapter
   var localStorageAdapter = (function(){
@@ -42,10 +47,27 @@ angular.module('pascalprecht.translate')
        * @description
        * Sets an item in localStorage by given name.
        *
+       * @deprecated use #put
+       *
        * @param {string} name Item name
        * @param {string} value Item value
        */
       set: function (name, value) {
+        langKey=value;
+        $window.localStorage.setItem(name, value);
+      },
+      /**
+       * @ngdoc function
+       * @name pascalprecht.translate.$translateLocalStorage#put
+       * @methodOf pascalprecht.translate.$translateLocalStorage
+       *
+       * @description
+       * Sets an item in localStorage by given name.
+       *
+       * @param {string} name Item name
+       * @param {string} value Item value
+       */
+      put: function (name, value) {
         langKey=value;
         $window.localStorage.setItem(name, value);
       }
@@ -71,4 +93,6 @@ angular.module('pascalprecht.translate')
   }
   var $translateLocalStorage = hasLocalStorageSupport ? localStorageAdapter : $translateCookieStorage;
   return $translateLocalStorage;
-}]);
+}
+
+$translateLocalStorageFactory.displayName = '$translateLocalStorageFactory';

@@ -13,9 +13,18 @@ angular.module('pascalprecht.translate')
  * This directive can be used to prevent initial flickering when loading translation
  * data asynchronously.
  *
- * @param {string=} translate-cloak No string required
+ * The class name is defined in
+ * {@link pascalprecht.translate.$translateProvider#cloakClassName $translate.cloakClassName()}.
+ *
+ * @param {string=} translate-cloak If a translationId is provided, it will be used for showing
+ *                                  or hiding the cloak. Basically it relies on the translation
+ *                                  resolve.
  */
-.directive('translateCloak', ['$rootScope', '$translate', function ($rootScope, $translate) {
+.directive('translateCloak', translateCloakDirective);
+
+function translateCloakDirective($translate) {
+
+  'use strict';
 
   return {
     compile: function (tElement) {
@@ -24,11 +33,9 @@ angular.module('pascalprecht.translate')
       },
       removeCloak = function () {
         tElement.removeClass($translate.cloakClassName());
-      },
-      removeListener = $rootScope.$on('$translateChangeEnd', function () {
+      };
+      $translate.onReady(function () {
         removeCloak();
-        removeListener();
-        removeListener = null;
       });
       applyCloak();
 
@@ -42,4 +49,6 @@ angular.module('pascalprecht.translate')
       };
     }
   };
-}]);
+}
+
+translateCloakDirective.displayName = 'translateCloakDirective';

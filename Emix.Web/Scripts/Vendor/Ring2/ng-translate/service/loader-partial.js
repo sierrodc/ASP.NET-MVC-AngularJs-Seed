@@ -9,7 +9,11 @@ angular.module('pascalprecht.translate')
  * lifetime. All parts you add by using this provider would be loaded by
  * angular-translate at the startup as soon as possible.
  */
-.provider('$translatePartialLoader', function() {
+  .provider('$translatePartialLoader', $translatePartialLoader);
+
+function $translatePartialLoader() {
+
+  'use strict';
 
   /**
    * @constructor
@@ -18,10 +22,11 @@ angular.module('pascalprecht.translate')
    * @description
    * Represents Part object to add and set parts at runtime.
    */
-  function Part(name) {
+  function Part(name, priority) {
     this.name = name;
     this.isActive = true;
     this.tables = {};
+    this.priority = priority || 0;
   }
 
   /**
@@ -32,43 +37,48 @@ angular.module('pascalprecht.translate')
    * Returns a parsed url template string and replaces given target lang
    * and part name it.
    *
-   * @param {string} urlTemplate Url pattern to use.
-   * @param {string} targetLang Language key for language to be used.
+   * @param {string|function} urlTemplate - Either a string containing an url pattern (with
+   *                                        '{part}' and '{lang}') or a function(part, lang)
+   *                                        returning a string.
+   * @param {string} targetLang - Language key for language to be used.
    * @return {string} Parsed url template string
    */
   Part.prototype.parseUrl = function(urlTemplate, targetLang) {
+    if (angular.isFunction(urlTemplate)) {
+      return urlTemplate(this.name, targetLang);
+    }
     return urlTemplate.replace(/\{part\}/g, this.name).replace(/\{lang\}/g, targetLang);
   };
 
   Part.prototype.getTable = function(lang, $q, $http, $httpOptions, urlTemplate, errorHandler) {
-    var deferred = $q.defer();
 
     if (!this.tables[lang]) {
       var self = this;
 
-      $http(angular.extend({
+      return $http(angular.extend({
         method : 'GET',
         url: this.parseUrl(urlTemplate, lang)
-      }, $httpOptions)).success(function(data){
-        self.tables[lang] = data;
-        deferred.resolve(data);
-      }).error(function() {
-        if (errorHandler) {
-          errorHandler(self.name, lang).then(function(data) {
-            self.tables[lang] = data;
-            deferred.resolve(data);
-          }, function() {
-            deferred.reject(self.name);
-          });
-        } else {
-          deferred.reject(self.name);
-        }
-      });
+      }, $httpOptions))
+        .then(function(result){
+          self.tables[lang] = result.data;
+          return result.data;
+        }, function() {
+          if (errorHandler) {
+            return errorHandler(self.name, lang)
+              .then(function(data) {
+                self.tables[lang] = data;
+                return data;
+              }, function() {
+                return $q.reject(self.name);
+              });
+          } else {
+            return $q.reject(self.name);
+          }
+        });
 
     } else {
-      deferred.resolve(this.tables[lang]);
+      return $q.when(this.tables[lang]);
     }
-    return deferred.promise;
   };
 
   var parts = {};
@@ -102,6 +112,19 @@ angular.module('pascalprecht.translate')
     return dst;
   }
 
+  function getPrioritizedParts() {
+    var prioritizedParts = [];
+    for(var part in parts) {
+      if (parts[part].isActive) {
+        prioritizedParts.push(parts[part]);
+      }
+    }
+    prioritizedParts.sort(function (a, b) {
+      return a.priority - b.priority;
+    });
+    return prioritizedParts;
+  }
+
 
   /**
    * @ngdoc function
@@ -114,18 +137,20 @@ angular.module('pascalprecht.translate')
    * translation data, but only registers a part to be loaded in the future.
    *
    * @param {string} name A name of the part to add
+   * @param {int} [priority=0] Sets the load priority of this part.
+   *
    * @returns {object} $translatePartialLoaderProvider, so this method is chainable
    * @throws {TypeError} The method could throw a **TypeError** if you pass the param
    * of the wrong type. Please, note that the `name` param has to be a
    * non-empty **string**.
    */
-  this.addPart = function(name) {
+  this.addPart = function(name, priority) {
     if (!isStringValid(name)) {
       throw new TypeError('Couldn\'t add part, part name has to be a string!');
     }
 
     if (!hasPart(name)) {
-      parts[name] = new Part(name);
+      parts[name] = new Part(name, priority);
     }
     parts[name].isActive = true;
 
@@ -150,7 +175,7 @@ angular.module('pascalprecht.translate')
    * of the wrong type. Please, note that the `lang` and `part` params have to be a
    * non-empty **string**s and the `table` param has to be an object.
    */
-  this.setPart = function(lang, part, table) {
+  this.setPart = function (lang, part, table) {
     if (!isStringValid(lang)) {
       throw new TypeError('Couldn\'t set part.`lang` parameter has to be a string!');
     }
@@ -186,7 +211,7 @@ angular.module('pascalprecht.translate')
    * @throws {TypeError} The method could throw a **TypeError** if you pass the param of the wrong
    * type. Please, note that the `name` param has to be a non-empty **string**.
    */
-  this.deletePart = function(name) {
+  this.deletePart = function (name) {
     if (!isStringValid(name)) {
       throw new TypeError('Couldn\'t delete part, first arg has to be string.');
     }
@@ -256,52 +281,41 @@ angular.module('pascalprecht.translate')
         throw new TypeError('Unable to load data, a key is not a non-empty string.');
       }
 
-      if (!isStringValid(options.urlTemplate)) {
-        throw new TypeError('Unable to load data, a urlTemplate is not a non-empty string.');
+      if (!isStringValid(options.urlTemplate) && !angular.isFunction(options.urlTemplate)) {
+        throw new TypeError('Unable to load data, a urlTemplate is not a non-empty string or not a function.');
       }
 
       var errorHandler = options.loadFailureHandler;
       if (errorHandler !== undefined) {
         if (!angular.isString(errorHandler)) {
           throw new Error('Unable to load data, a loadFailureHandler is not a string.');
-        } else errorHandler = $injector.get(errorHandler);
-      }
-
-      var loaders = [],
-          tables = [],
-          deferred = $q.defer();
-
-      function addTablePart(table) {
-        tables.push(table);
-      }
-
-      for (var part in parts) {
-        if (hasPart(part) && parts[part].isActive) {
-          loaders.push(
-            parts[part]
-              .getTable(options.key, $q, $http, options.$http, options.urlTemplate, errorHandler)
-              .then(addTablePart)
-          );
-          parts[part].urlTemplate = options.urlTemplate;
+        } else {
+          errorHandler = $injector.get(errorHandler);
         }
       }
 
-      if (loaders.length) {
-        $q.all(loaders).then(
-          function() {
-            var table = {};
-            for (var i = 0; i < tables.length; i++) {
-              deepExtend(table, tables[i]);
-            }
-            deferred.resolve(table);
-          },
-          function() {
-            deferred.reject(options.key);
-          }
+      var loaders = [],
+          deferred = $q.defer(),
+          prioritizedParts = getPrioritizedParts();
+
+      angular.forEach(prioritizedParts, function(part) {
+        loaders.push(
+          part.getTable(options.key, $q, $http, options.$http, options.urlTemplate, errorHandler)
         );
-      } else {
-        deferred.resolve({});
-      }
+        part.urlTemplate = options.urlTemplate;
+      });
+
+      $q.all(loaders)
+        .then(function() {
+          var table = {};
+          angular.forEach(prioritizedParts, function(part) {
+            deepExtend(table, part.tables[options.key]);
+          });
+          deferred.resolve(table);
+        }, function() {
+          deferred.reject(options.key);
+        }
+      );
 
       return deferred.promise;
     };
@@ -312,11 +326,12 @@ angular.module('pascalprecht.translate')
      * @methodOf pascalprecht.translate.$translatePartialLoader
      *
      * @description
-     * Registers a new part of the translation table. This method does actually not perform any xhr
-     * requests to get a translation data. The new parts would be loaded from the server next time
-     * `angular-translate` asks to loader to loaded translations.
+     * Registers a new part of the translation table. This method does not actually perform any xhr
+     * requests to get translation data. The new parts will be loaded in order of priority from the server next time
+     * `angular-translate` asks the loader to load translations.
      *
      * @param {string} name A name of the part to add
+     * @param {int} [priority=0] Sets the load priority of this part.
      *
      * @returns {object} $translatePartialLoader, so this method is chainable
      *
@@ -328,13 +343,13 @@ angular.module('pascalprecht.translate')
      * @throws {TypeError} The method could throw a **TypeError** if you pass the param of the wrong
      * type. Please, note that the `name` param has to be a non-empty **string**.
      */
-    service.addPart = function(name) {
+    service.addPart = function(name, priority) {
       if (!isStringValid(name)) {
         throw new TypeError('Couldn\'t add part, first arg has to be a string');
       }
 
       if (!hasPart(name)) {
-        parts[name] = new Part(name);
+        parts[name] = new Part(name, priority);
         $rootScope.$emit('$translatePartialLoaderStructureChanged', name);
       } else if (!parts[name].isActive) {
         parts[name].isActive = true;
@@ -414,6 +429,48 @@ angular.module('pascalprecht.translate')
 
     /**
      * @ngdoc function
+     * @name pascalprecht.translate.$translatePartialLoader#isPartLoaded
+     * @methodOf pascalprecht.translate.$translatePartialLoader
+     *
+     * @description
+     * Checks if the registered translation part is loaded into the translation table.
+     *
+     * @param {string} name A name of the part
+     * @param {string} lang A key of the language
+     *
+     * @returns {boolean} Returns **true** if the translation of the part is loaded to the translation table and **false** if not.
+     *
+     * @throws {TypeError} The method could throw a **TypeError** if you pass the param of the wrong
+     * type. Please, note that the `name` and `lang` params have to be non-empty **string**.
+     */
+    service.isPartLoaded = function(name, lang) {
+      return angular.isDefined(parts[name]) && angular.isDefined(parts[name].tables[lang]);
+    };
+
+    /**
+     * @ngdoc function
+     * @name pascalprecht.translate.$translatePartialLoader#getRegisteredParts
+     * @methodOf pascalprecht.translate.$translatePartialLoader
+     *
+     * @description
+     * Gets names of the parts that were added with the `addPart`.
+     *
+     * @returns {array} Returns array of registered parts, if none were registered then an empty array is returned.
+     */
+    service.getRegisteredParts = function() {
+      var registeredParts = [];
+      angular.forEach(parts, function(p){
+        if(p.isActive) {
+          registeredParts.push(p.name);
+        }
+      });
+      return registeredParts;
+    };
+
+
+
+    /**
+     * @ngdoc function
      * @name pascalprecht.translate.$translatePartialLoader#isPartAvailable
      * @methodOf pascalprecht.translate.$translatePartialLoader
      *
@@ -436,4 +493,6 @@ angular.module('pascalprecht.translate')
 
   }];
 
-});
+}
+
+$translatePartialLoader.displayName = '$translatePartialLoader';

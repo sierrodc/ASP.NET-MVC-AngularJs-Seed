@@ -1,5 +1,4 @@
-﻿//from https://github.com/ziscloud/angular-slimscroll
-angular.module('ui.slimscroll', []).directive('slimscroll', function () {
+﻿angular.module('ui.slimscroll', []).directive('slimscroll', function () {
     'use strict';
 
     return {
@@ -9,19 +8,20 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
             var option = {};
 
             var refresh = function () {
-                if ($attr.slimscroll) {
-                    option = $scope.$eval($attr.slimscroll);
+                if (angular.isDefined($attr.slimscroll)) {
+                    option = $scope.$eval($attr.slimscroll) || {};
                 } else if ($attr.slimscrollOption) {
-                    option = $scope.$eval($attr.slimscrollOption);
+                    option = $scope.$eval($attr.slimscrollOption) || {};
                 }
-                $($elem).slimScroll({ destroy: true });
-                $($elem).slimScroll(option);
+
+                var el = angular.element($elem);
+
+                el.slimScroll({ destroy: true });
+                el.slimScroll(option);
             };
 
-            var init = function () {
-                refresh();
-
-                if ($attr.slimscroll && !option.noWatch) {
+            var registerWatch = function () {
+                if (angular.isDefined($attr.slimscroll) && !option.noWatch) {
                     off.push($scope.$watchCollection($attr.slimscroll, refresh));
                 }
 
@@ -35,6 +35,7 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
             };
 
             var destructor = function () {
+                angular.element($elem).slimScroll({ destroy: true });
                 off.forEach(function (unbind) {
                     unbind();
                 });
@@ -42,7 +43,8 @@ angular.module('ui.slimscroll', []).directive('slimscroll', function () {
             };
 
             off.push($scope.$on('$destroy', destructor));
-            init();
+
+            registerWatch();
         }
     };
 });

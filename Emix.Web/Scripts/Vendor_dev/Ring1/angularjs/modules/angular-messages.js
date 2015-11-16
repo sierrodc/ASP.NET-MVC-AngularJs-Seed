@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.4.0-beta.5
+ * @license AngularJS v1.5.0-beta.1
  * (c) 2010-2015 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -36,8 +36,11 @@ var jqLite = angular.element;
  *
  * ```html
  * <form name="myForm">
- *   <input type="text" ng-model="field" name="myField" required minlength="5" />
- *   <div ng-messages="myForm.myField.$error">
+ *   <label>
+ *     Enter text:
+ *     <input type="text" ng-model="field" name="myField" required minlength="5" />
+ *   </label>
+ *   <div ng-messages="myForm.myField.$error" role="alert">
  *     <div ng-message="required">You did not enter a field</div>
  *     <div ng-message="minlength, maxlength">
  *       Your email must be between 5 and 100 characters long
@@ -53,7 +56,7 @@ var jqLite = angular.element;
  *
  * ```javascript
  * <!-- keep in mind that ngModel automatically sets these error flags -->
- * myField.$error = { minlength : true, required : false };
+ * myField.$error = { minlength : true, required : true };
  * ```
  *
  * Then the `required` message will be displayed first. When required is false then the `minlength` message
@@ -85,7 +88,7 @@ var jqLite = angular.element;
  *   <div ng-message="minlength">This field is too short</div>
  * </script>
  *
- * <div ng-messages="myForm.myField.$error">
+ * <div ng-messages="myForm.myField.$error" role="alert">
  *   <div ng-messages-include="error-messages"></div>
  * </div>
  * ```
@@ -102,16 +105,18 @@ var jqLite = angular.element;
  * </script>
  *
  * <form name="myForm">
- *   <input type="email"
- *          id="email"
- *          name="myEmail"
- *          ng-model="email"
- *          minlength="5"
- *          required />
- *
+ *   <label>
+ *     Email address
+ *     <input type="email"
+ *            id="email"
+ *            name="myEmail"
+ *            ng-model="email"
+ *            minlength="5"
+ *            required />
+ *   </label>
  *   <!-- any ng-message elements that appear BEFORE the ng-messages-include will
  *        override the messages present in the ng-messages-include template -->
- *   <div ng-messages="myForm.myEmail.$error">
+ *   <div ng-messages="myForm.myEmail.$error" role="alert">
  *     <!-- this required message has overridden the template message -->
  *     <div ng-message="required">You did not enter your email address</div>
  *
@@ -119,7 +124,7 @@ var jqLite = angular.element;
  *     <div ng-message="email">Your email address is invalid</div>
  *
  *     <!-- and here are the generic error messages -->
- *     <div ng-messages-include="error-messages"></div>
+ *     <div ng-messages-include="my-custom-messages"></div>
  *   </div>
  * </form>
  * ```
@@ -136,13 +141,15 @@ var jqLite = angular.element;
  *
  * ```html
  * <form name="myForm">
- *   <input type="email"
- *          name="myEmail"
- *          ng-model="email"
- *          minlength="5"
- *          required />
- *
- *   <div ng-messages="myForm.myEmail.$error">
+ *   <label>
+ *     Email address
+ *     <input type="email"
+ *            name="myEmail"
+ *            ng-model="email"
+ *            minlength="5"
+ *            required />
+ *   </label>
+ *   <div ng-messages="myForm.myEmail.$error" role="alert">
  *     <div ng-message="required">You did not enter your email address</div>
  *     <div ng-repeat="errorMessage in errorMessages">
  *       <!-- use ng-message-exp for a message whose key is given by an expression -->
@@ -156,15 +163,18 @@ var jqLite = angular.element;
  * that multiple errors can be associated with a single error message:
  *
  * ```html
- *  <input type="email"
- *         ng-model="data.email"
- *         name="myEmail"
- *         ng-minlength="5"
- *         ng-maxlength="100"
- *         required />
- *   <div ng-messages="myForm.myEmail.$error">
+ *   <label>
+ *     Email address
+ *     <input type="email"
+ *            ng-model="data.email"
+ *            name="myEmail"
+ *            ng-minlength="5"
+ *            ng-maxlength="100"
+ *            required />
+ *   </label>
+ *   <div ng-messages="myForm.myEmail.$error" role="alert">
  *     <div ng-message-exp="'required'">You did not enter your email address</div>
- *     <div ng-message-exp="['minlength', 'maxlength]">
+ *     <div ng-message-exp="['minlength', 'maxlength']">
  *       Your email must be between 5 and 100 characters long
  *     </div>
  *   </div>
@@ -177,7 +187,7 @@ var jqLite = angular.element;
  * directive.
  *
  * ```html
- * <div ng-messages="myForm.myEmail.$error">
+ * <div ng-messages="myForm.myEmail.$error" role="alert">
  *   <div ng-if="showRequiredError">
  *     <div ng-message="required">Please enter something</div>
  *   </div>
@@ -197,7 +207,7 @@ var jqLite = angular.element;
  * Let's say that our HTML code for our messages container looks like so:
  *
  * ```html
- * <div ng-messages="myMessages" class="my-messages">
+ * <div ng-messages="myMessages" class="my-messages" role="alert">
  *   <div ng-message="alert" class="some-message">...</div>
  *   <div ng-message="fail" class="some-message">...</div>
  * </div>
@@ -246,7 +256,7 @@ angular.module('ngMessages', [])
     *
     * @description
     * `ngMessages` is a directive that is designed to show and hide messages based on the state
-    * of a key/value object that it listens on. The directive itself compliments error message
+    * of a key/value object that it listens on. The directive itself complements error message
     * reporting with the `ngModel` $error object (which stores a key/value state of validation errors).
     *
     * `ngMessages` manages the state of internal messages within its container element. The internal
@@ -263,14 +273,14 @@ angular.module('ngMessages', [])
     * @usage
     * ```html
     * <!-- using attribute directives -->
-    * <ANY ng-messages="expression">
+    * <ANY ng-messages="expression" role="alert">
     *   <ANY ng-message="stringValue">...</ANY>
     *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
     *   <ANY ng-message-exp="expressionValue">...</ANY>
     * </ANY>
     *
     * <!-- or by using element directives -->
-    * <ng-messages for="expression">
+    * <ng-messages for="expression" role="alert">
     *   <ng-message when="stringValue">...</ng-message>
     *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
     *   <ng-message when-exp="expressionValue">...</ng-message>
@@ -287,17 +297,18 @@ angular.module('ngMessages', [])
     *          animations="true" fixBase="true">
     *   <file name="index.html">
     *     <form name="myForm">
-    *       <label>Enter your name:</label>
-    *       <input type="text"
-    *              name="myName"
-    *              ng-model="name"
-    *              ng-minlength="5"
-    *              ng-maxlength="20"
-    *              required />
-    *
+    *       <label>
+    *         Enter your name:
+    *         <input type="text"
+    *                name="myName"
+    *                ng-model="name"
+    *                ng-minlength="5"
+    *                ng-maxlength="20"
+    *                required />
+    *       </label>
     *       <pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
     *
-    *       <div ng-messages="myForm.myName.$error" style="color:maroon">
+    *       <div ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
     *         <div ng-message="required">You did not enter a field</div>
     *         <div ng-message="minlength">Your field is too short</div>
     *         <div ng-message="maxlength">Your field is too long</div>
@@ -319,6 +330,9 @@ angular.module('ngMessages', [])
        controller: ['$element', '$scope', '$attrs', function($element, $scope, $attrs) {
          var ctrl = this;
          var latestKey = 0;
+         var nextAttachId = 0;
+
+         this.getAttachId = function getAttachId() { return nextAttachId++; };
 
          var messages = this.messages = {};
          var renderLater, cachedCollection;
@@ -486,12 +500,12 @@ angular.module('ngMessages', [])
     * @usage
     * ```html
     * <!-- using attribute directives -->
-    * <ANY ng-messages="expression">
+    * <ANY ng-messages="expression" role="alert">
     *   <ANY ng-messages-include="remoteTplString">...</ANY>
     * </ANY>
     *
     * <!-- or by using element directives -->
-    * <ng-messages for="expression">
+    * <ng-messages for="expression" role="alert">
     *   <ng-messages-include src="expressionValue1">...</ng-messages-include>
     * </ng-messages>
     * ```
@@ -505,27 +519,21 @@ angular.module('ngMessages', [])
 
      return {
        restrict: 'AE',
-       require: '^^ngMessages',
-       compile: function(element, attrs) {
-         var comment = jqLite($document[0].createComment(' ngMessagesInclude: '));
-         element.after(comment);
+       require: '^^ngMessages', // we only require this for validation sake
+       link: function($scope, element, attrs) {
+         var src = attrs.ngMessagesInclude || attrs.src;
+         $templateRequest(src).then(function(html) {
+           $compile(html)($scope, function(contents) {
+             element.after(contents);
 
-         return function($scope, $element, attrs, ngMessagesCtrl) {
-           // we're removing this since we only need access to the newly
-           // created comment node as an anchor.
-           element.remove();
+             // the anchor is placed for debugging purposes
+             var anchor = jqLite($document[0].createComment(' ngMessagesInclude: ' + src + ' '));
+             element.after(anchor);
 
-           $templateRequest(attrs.ngMessagesInclude || attrs.src).then(function(html) {
-             var elements = jqLite('<div></div>').html(html).contents();
-             var cursor = comment;
-             forEach(elements, function(elm) {
-               elm = jqLite(elm);
-               cursor.after(elm);
-               cursor = elm;
-             });
-             $compile(elements)($scope);
+             // we don't want to pollute the DOM anymore by keeping an empty directive element
+             element.remove();
            });
-         };
+         });
        }
      };
    }])
@@ -542,29 +550,58 @@ angular.module('ngMessages', [])
     * must be situated since it determines which messages are visible based on the state
     * of the provided key/value map that `ngMessages` listens on.
     *
+    * More information about using `ngMessage` can be found in the
+    * {@link module:ngMessages `ngMessages` module documentation}.
+    *
+    * @usage
+    * ```html
+    * <!-- using attribute directives -->
+    * <ANY ng-messages="expression" role="alert">
+    *   <ANY ng-message="stringValue">...</ANY>
+    *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
+    * </ANY>
+    *
+    * <!-- or by using element directives -->
+    * <ng-messages for="expression" role="alert">
+    *   <ng-message when="stringValue">...</ng-message>
+    *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
+    * </ng-messages>
+    * ```
+    *
+    * @param {expression} ngMessage|when a string value corresponding to the message key.
+    */
+  .directive('ngMessage', ngMessageDirectiveFactory('AE'))
+
+
+   /**
+    * @ngdoc directive
+    * @name ngMessageExp
+    * @restrict AE
+    * @scope
+    *
+    * @description
+    * `ngMessageExp` is a directive with the purpose to show and hide a particular message.
+    * For `ngMessageExp` to operate, a parent `ngMessages` directive on a parent DOM element
+    * must be situated since it determines which messages are visible based on the state
+    * of the provided key/value map that `ngMessages` listens on.
+    *
     * @usage
     * ```html
     * <!-- using attribute directives -->
     * <ANY ng-messages="expression">
-    *   <ANY ng-message="stringValue">...</ANY>
-    *   <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
     *   <ANY ng-message-exp="expressionValue">...</ANY>
     * </ANY>
     *
     * <!-- or by using element directives -->
     * <ng-messages for="expression">
-    *   <ng-message when="stringValue">...</ng-message>
-    *   <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
     *   <ng-message when-exp="expressionValue">...</ng-message>
     * </ng-messages>
     * ```
     *
     * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
     *
-    * @param {expression} ngMessage|when a string value corresponding to the message key.
     * @param {expression} ngMessageExp|whenExp an expression value corresponding to the message key.
     */
-  .directive('ngMessage', ngMessageDirectiveFactory('AE'))
   .directive('ngMessageExp', ngMessageDirectiveFactory('A'));
 
 function ngMessageDirectiveFactory(restrict) {
@@ -607,11 +644,15 @@ function ngMessageDirectiveFactory(restrict) {
                 $animate.enter(elm, null, element);
                 currentElement = elm;
 
+                // Each time we attach this node to a message we get a new id that we can match
+                // when we are destroying the node later.
+                var $$attachId = currentElement.$$attachId = ngMessagesCtrl.getAttachId();
+
                 // in the event that the parent element is destroyed
                 // by any other structural directive then it's time
                 // to deregister the message from the controller
                 currentElement.on('$destroy', function() {
-                  if (currentElement) {
+                  if (currentElement && currentElement.$$attachId === $$attachId) {
                     ngMessagesCtrl.deregister(commentNode);
                     messageCtrl.detach();
                   }

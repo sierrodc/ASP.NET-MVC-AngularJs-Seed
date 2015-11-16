@@ -29,19 +29,28 @@ $provide.value("$locale", {
       "nedelja",
       "ponedeljak",
       "utorak",
-      "srijeda",
+      "sreda",
       "\u010detvrtak",
       "petak",
       "subota"
     ],
+    "ERANAMES": [
+      "Pre nove ere",
+      "Nove ere"
+    ],
+    "ERAS": [
+      "p. n. e.",
+      "n. e."
+    ],
+    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "januar",
       "februar",
       "mart",
       "april",
       "maj",
-      "juni",
-      "juli",
+      "jun",
+      "jul",
       "avgust",
       "septembar",
       "oktobar",
@@ -52,7 +61,7 @@ $provide.value("$locale", {
       "ned",
       "pon",
       "uto",
-      "sri",
+      "sre",
       "\u010det",
       "pet",
       "sub"
@@ -71,13 +80,17 @@ $provide.value("$locale", {
       "nov",
       "dec"
     ],
+    "WEEKENDRANGE": [
+      5,
+      6
+    ],
     "fullDate": "EEEE, dd. MMMM y.",
     "longDate": "dd. MMMM y.",
-    "medium": "y-MM-dd HH:mm:ss",
-    "mediumDate": "y-MM-dd",
+    "medium": "dd.MM.y. HH:mm:ss",
+    "mediumDate": "dd.MM.y.",
     "mediumTime": "HH:mm:ss",
-    "short": "yy-MM-dd HH:mm",
-    "shortDate": "yy-MM-dd",
+    "short": "d.M.yy. HH:mm",
+    "shortDate": "d.M.yy.",
     "shortTime": "HH:mm"
   },
   "NUMBER_FORMATS": {
