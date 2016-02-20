@@ -5,7 +5,11 @@
             Test: {
                 sayHello: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Test", action = "SayHello" })',
                 uploadFiles: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "FileUpload", action = "UploadFiles" })',
-                deleteFile: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "FileUpload", action = "DeleteFile" })'
+                deleteFile: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "FileUpload", action = "DeleteFile" })',
+
+                getTable: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Test", action = "GetTable" })',
+                addRandomRow: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Test", action = "AddRandomRow" })',
+                addRandomColumn: '@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Test", action = "AddRandomColumn" })',
             }
         },
         Web: {

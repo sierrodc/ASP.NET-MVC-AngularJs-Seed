@@ -7,10 +7,33 @@
         <li class="active">Blank page</li>
     </ol>
 </section>
-
 <section class="content">
     <h2>{{title}}</h2>
+    <button ng-click="getTable()">Get Table</button>
+    <button ng-click="addRandomRow()">Add Row</button>
+    <button ng-click="addRandomColumn()">Add Column</button>
 
+    <div>
+        <span>Number of rows: {{table.rows.length}}</span>
+        <span>Number of columns: {{table.columns.length}}</span>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td></td>
+                <td ng-repeat="col in table.columns track by $index">
+                    {{col}}
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in table.rows track by row">
+                <td>{{row}}</td>
+                <td ng-repeat="col in table.columns track by col">
+                    <span highlighter="getData(row, col)">{{getData(row, col)|number:2}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 

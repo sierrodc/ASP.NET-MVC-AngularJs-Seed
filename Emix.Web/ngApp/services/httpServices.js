@@ -17,6 +17,30 @@ angular.module('emixApp.services').service('httpServices', ['$http', function ($
                 url: Emix.Api.Test.deleteFile + "/" + fileId,
                 cache: false
             });
+        },
+
+        getTable: function () {
+            return $http({
+                method: "GET",
+                url: Emix.Api.Test.getTable,
+                cache: false
+            });
+        },
+
+        addRandomRow: function () {
+            return $http({
+                method: "POST",
+                url: Emix.Api.Test.addRandomRow,
+                cache: false
+            });
+        },
+
+        addRandomColumn: function () {
+            return $http({
+                method: "POST",
+                url: Emix.Api.Test.addRandomColumn,
+                cache: false
+            });
         }
     };
 }]);

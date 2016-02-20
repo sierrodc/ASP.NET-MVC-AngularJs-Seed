@@ -74,7 +74,8 @@
                 });
             }
         };
-    }).directive('ngFixLayoutOnResize', ['$timeout', '$rootScope', function ($timeout, $rootScope) {
+    })
+    .directive('ngFixLayoutOnResize', ['$timeout', '$rootScope', function ($timeout, $rootScope) {
         'use strict';
 
         return {
@@ -140,4 +141,31 @@
                 });
             }
         };
-    }]);
+    }])
+    .directive('highlighter', ['$timeout', function ($timeout) {
+    return {
+        restrict: 'A',
+        scope: {
+            model: '=highlighter'
+        },
+        link: function (scope, element) {
+            scope.$watch('model', function (nv, ov) {
+                if (nv !== ov) {
+                    // apply class
+                    element.addClass('highlight');
+
+                    // auto remove after some delay
+                    $timeout(function () {
+                        element.removeClass('highlight');
+                    }, 1000);
+                }
+            });
+            element.addClass('highlight');
+
+            // auto remove after some delay
+            $timeout(function () {
+                element.removeClass('highlight');
+            }, 1000);
+        }
+    };
+}]);

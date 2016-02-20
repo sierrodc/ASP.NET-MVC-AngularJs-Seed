@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Emix.Web</RootNamespace>
     <AssemblyName>Emix.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -22,6 +22,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,12 +68,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.2.0\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
@@ -818,9 +819,6 @@
     <Content Include="Content\fontawesome\bordered-pulled.less" />
     <Content Include="Content\morris.core.less" />
     <Content Include="Content\site.less" />
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\flag-icon\flag-icon-base.less" />
     <Content Include="Content\flag-icon\flag-icon-list.less" />
     <Content Include="Content\flag-icon\flag-icon.less" />
@@ -1626,14 +1624,14 @@
     <Content Include="Scripts\angular-i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\angular-i18n\angular-locale_zu.js" />
     <Content Include="Scripts\Custom\blockui.js" />
-    <Content Include="Scripts\Vendor\Ring0\jquery-2.1.4.js" />
-    <Content Include="Scripts\Vendor\Ring0\lodash-3.10.1.js" />
-    <Content Include="Scripts\Vendor\Ring0\moment-with-locales-2.10.6.js" />
+    <Content Include="Scripts\Vendor\Ring0\jquery-2.2.0.js" />
+    <Content Include="Scripts\Vendor\Ring0\lodash-4.5.js" />
+    <Content Include="Scripts\Vendor\Ring0\moment-with-locales-2.11.2.js" />
     <Content Include="Scripts\Vendor\Ring0\raphael-2.1.2.js" />
-    <Content Include="Scripts\Vendor\Ring1\angularjs\angular-1.5.0.b1.js" />
+    <Content Include="Scripts\Vendor\Ring1\angularjs\angular.js" />
     <Content Include="Scripts\Vendor\Ring1\angularjs\modules\angular-message-format.js" />
     <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\languages\lang-all.js" />
-    <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar-2.4.0.js" />
+    <Content Include="Scripts\Vendor\Ring1\fullcalendar.io\fullcalendar-2.6.1.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.ui.widget.js" />
     <Content Include="Scripts\Vendor\Ring1\morris-0.5.1.js" />
@@ -1644,12 +1642,12 @@
     <Content Include="Scripts\Vendor\Ring2\ng-translate\translate-2.8.1.js" />
     <Content Include="Scripts\Vendor\Ring2\ui-bootstrap-tpls-0.14.3.js" />
     <Content Include="Scripts\Vendor\Ring2\ui-calendar-1.0.1.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\jquery-2.1.4.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\lodash-3.10.1.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular-1.5.0.b1.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\jquery-2.2.0.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\lodash-4.5.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\angularjs\angular-1.5.0.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\angularjs\modules\angular-message-format.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\languages\lang-all.js" />
-    <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar-2.4.0.js" />
+    <Content Include="Scripts\Vendor_dev\Ring1\fullcalendar.io\fullcalendar-2.6.1.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery-slimScroll.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\jquery.fileupload.js" />
     <Content Include="Scripts\Vendor\Ring1\jquery.fileupload\plugins\jquery.fileupload-process.js" />
@@ -1682,7 +1680,7 @@
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\storage-local.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\translate.js" />
     <Content Include="Scripts\Vendor\Ring2\ng-translate\service\translationCache.js" />
-    <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales-2.10.6.js" />
+    <Content Include="Scripts\Vendor_dev\Ring0\moment-with-locales-2.11.2.js" />
     <Content Include="Scripts\Vendor_dev\Ring0\raphael-2.1.2.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery.ui.widget.js" />
     <Content Include="Scripts\Vendor_dev\Ring1\jquery.fileupload\jquery.fileupload.js" />
@@ -1736,6 +1734,9 @@
     <Content Include="Content\bootstrap\bootstrap-3.3.5.less" />
     <Content Include="Content\bootstrap\mixins\reset-text.less" />
     <Content Include="Content\fontawesome\font-awesome-4.4.0.less" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

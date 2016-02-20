@@ -16,7 +16,7 @@
         'mgcrea.ngStrap',
         'ngMorris',
         'pascalprecht.translate',
-        'blueimp.fileupload'
+        'blueimp.fileupload',
         ])
         .config(['$routeProvider', function ($routeProvider) {
 

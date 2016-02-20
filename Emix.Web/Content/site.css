@@ -20,7 +20,7 @@ body {
   filter: 'alpha(opacity=0)';
   font-size: 200px;
   direction: ltr;
-  cursor: pointer;
+  cursor: pointer; 
 }
 /*.file {
     &.ng-move, &.ng-enter, &.ng-leave {
@@ -122,4 +122,12 @@ body {
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
+}
+
+.highlight {
+    background-color: red;
+    -moz-transition: background 200ms;
+    -o-transition: background 200ms;
+    -webkit-transition: background 200ms;
+    transition: background 200ms;
 }
